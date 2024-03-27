@@ -1,0 +1,12 @@
+version=54;
+name="XDF Simplex Transport Helio (x2)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"characters_f_vietnam_c",
+	"characters_f_vietnam_03_c",
+	"air_f_vietnam_c",
+	"A3_Structures_F_Mil_Helipads",
+	"sss_transport"
+};

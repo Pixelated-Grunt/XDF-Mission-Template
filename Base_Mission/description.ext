@@ -1,0 +1,265 @@
+/*
+ * MISSION INFO - Update this for your mission
+ *
+ */
+
+author = "XDF Mission Team";
+OnLoadName = "XDF Base Mission";
+onLoadMission = "Template mission";
+// if mission picture is available
+//loadScreen = "mission.paa";
+
+class Header
+{	
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 16;
+};
+
+onLoadIntro = "Template mission";
+onLoadMissionTime = 0;
+onLoadIntroTime = 0;
+// Minor versions are for testing e.g. v0.1, major version for actual gameplay e.g. v1
+briefingName = "COOP 1-16 XDF Base Mission v0.1";
+briefing = 0;
+respawn = 3;
+respawnTemplates[] = {"MenuPosition"};
+respawnButton = 1;
+respawnDelay = 30;
+respawnOnStart = -1;
+disabledAI = 1;
+corpseManagerMode = 1;
+corpseRemovalMinTime = 1200;
+corpseLimit = 10;
+wreckManagerMode = 1;
+wreckRemovalMinTime = 1200;
+wreckLimit = 10;
+
+enableDebugConsole = 1;
+allowFunctionsLog = 1;
+
+
+/*
+ * MISSION SPECIFIC - Put config for current mission only
+ *
+ */
+
+
+/*
+ * COMMON SECTION - Settings for all missions, shouldn't need to change
+ *
+ */
+
+//View distance function definition
+#include "taw_vd\GUI.h"
+class CfgFunctions
+{
+	#include "taw_vd\CfgFunctions.hpp"
+};
+
+//Sound file definitions
+class CfgSounds {
+	class enAdminN01{name="enAdminN01";sound[]={\Sound\en-admin-n-01.ogg,db+1,1.0};titles[]={};};
+	
+	class enRadioN01{name="enRadioN01";sound[]={\Sound\en-radio-n-01.ogg,db+1,1.0};titles[]={};};
+	class enRadioN02{name="enRadioN02";sound[]={\Sound\en-radio-n-02.ogg,db+1,1.0};titles[]={};};
+	class enRadioN03{name="enRadioN03";sound[]={\Sound\en-radio-n-03.ogg,db+1,1.0};titles[]={};};
+	class enRadioN04{name="enRadioN04";sound[]={\Sound\en-radio-n-04.ogg,db+1,1.0};titles[]={};};
+	class enRadioN05{name="enRadioN05";sound[]={\Sound\en-radio-n-05.ogg,db+1,1.0};titles[]={};};
+	class enRadioN06{name="enRadioN06";sound[]={\Sound\en-radio-n-06.ogg,db+1,1.0};titles[]={};};
+	class enRadioN07{name="enRadioN07";sound[]={\Sound\en-radio-n-07.ogg,db+1,1.0};titles[]={};};
+	class enRadioN08{name="enRadioN08";sound[]={\Sound\en-radio-n-08.ogg,db+1,1.0};titles[]={};};
+	class enRadioN09{name="enRadioN09";sound[]={\Sound\en-radio-n-09.ogg,db+1,1.0};titles[]={};};
+	class enRadioN10{name="enRadioN10";sound[]={\Sound\en-radio-n-10.ogg,db+1,1.0};titles[]={};};
+	class enRadioN11{name="enRadioN11";sound[]={\Sound\en-radio-n-11.ogg,db+1,1.0};titles[]={};};
+	class enRadioN12{name="enRadioN12";sound[]={\Sound\en-radio-n-12.ogg,db+1,1.0};titles[]={};};
+	class enRadioN13{name="enRadioN13";sound[]={\Sound\en-radio-n-13.ogg,db+1,1.0};titles[]={};};
+	class enRadioN14{name="enRadioN14";sound[]={\Sound\en-radio-n-14.ogg,db+1,1.0};titles[]={};};
+	class enRadioN15{name="enRadioN15";sound[]={\Sound\en-radio-n-15.ogg,db+1,1.0};titles[]={};};
+	class enRadioN16{name="enRadioN16";sound[]={\Sound\en-radio-n-16.ogg,db+1,1.0};titles[]={};};
+	class enRadioN17{name="enRadioN17";sound[]={\Sound\en-radio-n-17.ogg,db+1,1.0};titles[]={};};
+	class enRadioN18{name="enRadioN18";sound[]={\Sound\en-radio-n-18.ogg,db+1,1.0};titles[]={};};
+	class enRadioN19{name="enRadioN19";sound[]={\Sound\en-radio-n-19.ogg,db+1,1.0};titles[]={};};
+	class enRadioN20{name="enRadioN20";sound[]={\Sound\en-radio-n-20.ogg,db+1,1.0};titles[]={};};
+	class enRadioN21{name="enRadioN21";sound[]={\Sound\en-radio-n-21.ogg,db+1,1.0};titles[]={};};
+	class enRadioN22{name="enRadioN22";sound[]={\Sound\en-radio-n-22.ogg,db+1,1.0};titles[]={};};
+	class enRadioN23{name="enRadioN23";sound[]={\Sound\en-radio-n-23.ogg,db+1,1.0};titles[]={};};
+	class enRadioN24{name="enRadioN24";sound[]={\Sound\en-radio-n-24.ogg,db+1,1.0};titles[]={};};
+	class enRadioN25{name="enRadioN25";sound[]={\Sound\en-radio-n-25.ogg,db+1,1.0};titles[]={};};
+	class enRadioN26{name="enRadioN26";sound[]={\Sound\en-radio-n-26.ogg,db+1,1.0};titles[]={};};
+	class enRadioN27{name="enRadioN27";sound[]={\Sound\en-radio-n-27.ogg,db+1,1.0};titles[]={};};
+	class enRadioN28{name="enRadioN28";sound[]={\Sound\en-radio-n-28.ogg,db+1,1.0};titles[]={};};
+	class enRadioN29{name="enRadioN29";sound[]={\Sound\en-radio-n-29.ogg,db+1,1.0};titles[]={};};
+	class enRadioN30{name="enRadioN30";sound[]={\Sound\en-radio-n-30.ogg,db+1,1.0};titles[]={};};
+	class enRadioN31{name="enRadioN31";sound[]={\Sound\en-radio-n-31.ogg,db+1,1.0};titles[]={};};
+	class enRadioN32{name="enRadioN32";sound[]={\Sound\en-radio-n-32.ogg,db+1,1.0};titles[]={};};
+	class enRadioN33{name="enRadioN33";sound[]={\Sound\en-radio-n-33.ogg,db+1,1.0};titles[]={};};
+	class enRadioN34{name="enRadioN34";sound[]={\Sound\en-radio-n-34.ogg,db+1,1.0};titles[]={};};
+	class enRadioN35{name="enRadioN35";sound[]={\Sound\en-radio-n-35.ogg,db+1,1.0};titles[]={};};
+	class enRadioN36{name="enRadioN36";sound[]={\Sound\en-radio-n-36.ogg,db+1,1.0};titles[]={};};
+	class enRadioN37{name="enRadioN37";sound[]={\Sound\en-radio-n-37.ogg,db+1,1.0};titles[]={};};
+	class enRadioN38{name="enRadioN38";sound[]={\Sound\en-radio-n-38.ogg,db+1,1.0};titles[]={};};
+	class enRadioN39{name="enRadioN39";sound[]={\Sound\en-radio-n-39.ogg,db+1,1.0};titles[]={};};
+	class enRadioN40{name="enRadioN40";sound[]={\Sound\en-radio-n-40.ogg,db+1,1.0};titles[]={};};
+	class enRadioN41{name="enRadioN41";sound[]={\Sound\en-radio-n-41.ogg,db+1,1.0};titles[]={};};
+	class enRadioN42{name="enRadioN42";sound[]={\Sound\en-radio-n-42.ogg,db+1,1.0};titles[]={};};
+	class enRadioN43{name="enRadioN43";sound[]={\Sound\en-radio-n-43.ogg,db+1,1.0};titles[]={};};
+	class enRadioN44{name="enRadioN44";sound[]={\Sound\en-radio-n-44.ogg,db+1,1.0};titles[]={};};
+	class enRadioN45{name="enRadioN45";sound[]={\Sound\en-radio-n-45.ogg,db+1,1.0};titles[]={};};
+	class enRadioN46{name="enRadioN46";sound[]={\Sound\en-radio-n-46.ogg,db+1,1.0};titles[]={};};
+	class enRadioN47{name="enRadioN47";sound[]={\Sound\en-radio-n-47.ogg,db+1,1.0};titles[]={};};
+	class enRadioN48{name="enRadioN48";sound[]={\Sound\en-radio-n-48.ogg,db+1,1.0};titles[]={};};
+	class enRadioN49{name="enRadioN49";sound[]={\Sound\en-radio-n-49.ogg,db+1,1.0};titles[]={};};
+	class enRadioN50{name="enRadioN50";sound[]={\Sound\en-radio-n-50.ogg,db+1,1.0};titles[]={};};
+	
+	class noAudioN01{name="noAudioN01";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN02{name="noAudioN02";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN03{name="noAudioN03";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN04{name="noAudioN04";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN05{name="noAudioN05";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN06{name="noAudioN06";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN07{name="noAudioN07";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN08{name="noAudioN08";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN09{name="noAudioN09";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN10{name="noAudioN10";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN11{name="noAudioN11";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN12{name="noAudioN12";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN13{name="noAudioN13";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN14{name="noAudioN14";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN15{name="noAudioN15";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN16{name="noAudioN16";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN17{name="noAudioN17";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN18{name="noAudioN18";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN19{name="noAudioN19";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN20{name="noAudioN20";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN21{name="noAudioN21";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN22{name="noAudioN22";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN23{name="noAudioN23";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN24{name="noAudioN24";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN25{name="noAudioN25";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN26{name="noAudioN26";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN27{name="noAudioN27";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN28{name="noAudioN28";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN29{name="noAudioN29";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	class noAudioN30{name="noAudioN30";sound[]={\Sound\no-audio-n-01.ogg,db+1,1.0};titles[]={};};
+	
+	class vnPropaN01{name="vnPropaN01";sound[]={\Sound\vn-Propa-n-01.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN02{name="vnPropaN02";sound[]={\Sound\vn-Propa-n-02.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN03{name="vnPropaN03";sound[]={\Sound\vn-Propa-n-03.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN04{name="vnPropaN04";sound[]={\Sound\vn-Propa-n-04.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN05{name="vnPropaN05";sound[]={\Sound\vn-Propa-n-05.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN06{name="vnPropaN06";sound[]={\Sound\vn-Propa-n-06.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN07{name="vnPropaN07";sound[]={\Sound\vn-Propa-n-07.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN08{name="vnPropaN08";sound[]={\Sound\vn-Propa-n-08.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN09{name="vnPropaN09";sound[]={\Sound\vn-Propa-n-09.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN10{name="vnPropaN10";sound[]={\Sound\vn-Propa-n-10.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN11{name="vnPropaN11";sound[]={\Sound\vn-Propa-n-11.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN12{name="vnPropaN12";sound[]={\Sound\vn-Propa-n-12.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN13{name="vnPropaN13";sound[]={\Sound\vn-Propa-n-13.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN14{name="vnPropaN14";sound[]={\Sound\vn-Propa-n-14.ogg,db+5,1.0};titles[]={};};
+	class vnPropaN15{name="vnPropaN15";sound[]={\Sound\vn-Propa-n-15.ogg,db+5,1.0};titles[]={};};
+	
+	class vnRadioN01{name="vnRadioN01";sound[]={\Sound\vn-radio-n-01.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN02{name="vnRadioN02";sound[]={\Sound\vn-radio-n-02.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN03{name="vnRadioN03";sound[]={\Sound\vn-radio-n-03.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN04{name="vnRadioN04";sound[]={\Sound\vn-radio-n-04.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN05{name="vnRadioN05";sound[]={\Sound\vn-radio-n-05.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN06{name="vnRadioN06";sound[]={\Sound\vn-radio-n-06.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN07{name="vnRadioN07";sound[]={\Sound\vn-radio-n-07.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN08{name="vnRadioN08";sound[]={\Sound\vn-radio-n-08.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN09{name="vnRadioN09";sound[]={\Sound\vn-radio-n-09.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN10{name="vnRadioN10";sound[]={\Sound\vn-radio-n-10.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN11{name="vnRadioN11";sound[]={\Sound\vn-radio-n-11.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN12{name="vnRadioN12";sound[]={\Sound\vn-radio-n-12.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN13{name="vnRadioN13";sound[]={\Sound\vn-radio-n-13.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN14{name="vnRadioN14";sound[]={\Sound\vn-radio-n-14.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN15{name="vnRadioN15";sound[]={\Sound\vn-radio-n-15.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN16{name="vnRadioN16";sound[]={\Sound\vn-radio-n-16.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN17{name="vnRadioN17";sound[]={\Sound\vn-radio-n-17.ogg,db+1,1.0};titles[]={};};	
+	class vnRadioN18{name="vnRadioN18";sound[]={\Sound\vn-radio-n-18.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN19{name="vnRadioN19";sound[]={\Sound\vn-radio-n-19.ogg,db+1,1.0};titles[]={};};
+	class vnRadioN20{name="vnRadioN20";sound[]={\Sound\vn-radio-n-20.ogg,db+1,1.0};titles[]={};};	
+	
+	class vnRadioY01{name="vnRadioY01";sound[]={\Sound\vn-radio-y-01.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY02{name="vnRadioY02";sound[]={\Sound\vn-radio-y-02.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY03{name="vnRadioY03";sound[]={\Sound\vn-radio-y-03.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY04{name="vnRadioY04";sound[]={\Sound\vn-radio-y-04.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY05{name="vnRadioY05";sound[]={\Sound\vn-radio-y-05.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY06{name="vnRadioY06";sound[]={\Sound\vn-radio-y-06.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY07{name="vnRadioY07";sound[]={\Sound\vn-radio-y-07.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY08{name="vnRadioY08";sound[]={\Sound\vn-radio-y-08.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY09{name="vnRadioY09";sound[]={\Sound\vn-radio-y-09.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY10{name="vnRadioY10";sound[]={\Sound\vn-radio-y-10.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY11{name="vnRadioY11";sound[]={\Sound\vn-radio-y-11.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY12{name="vnRadioY12";sound[]={\Sound\vn-radio-y-12.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY13{name="vnRadioY13";sound[]={\Sound\vn-radio-y-13.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY14{name="vnRadioY14";sound[]={\Sound\vn-radio-y-14.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY15{name="vnRadioY15";sound[]={\Sound\vn-radio-y-15.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY16{name="vnRadioY16";sound[]={\Sound\vn-radio-y-16.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY17{name="vnRadioY17";sound[]={\Sound\vn-radio-y-17.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY18{name="vnRadioY18";sound[]={\Sound\vn-radio-y-18.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY19{name="vnRadioY19";sound[]={\Sound\vn-radio-y-19.ogg,db+5,1.0};titles[]={};};
+	class vnRadioY20{name="vnRadioY20";sound[]={\Sound\vn-radio-y-20.ogg,db+5,1.0};titles[]={};};
+		
+	class vnTalksN01{name="vnTalksN01";sound[]={\Sound\vn-talks-n-01.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN02{name="vnTalksN02";sound[]={\Sound\vn-talks-n-02.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN03{name="vnTalksN03";sound[]={\Sound\vn-talks-n-03.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN04{name="vnTalksN04";sound[]={\Sound\vn-talks-n-04.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN05{name="vnTalksN05";sound[]={\Sound\vn-talks-n-05.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN06{name="vnTalksN06";sound[]={\Sound\vn-talks-n-06.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN07{name="vnTalksN07";sound[]={\Sound\vn-talks-n-07.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN08{name="vnTalksN08";sound[]={\Sound\vn-talks-n-08.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN09{name="vnTalksN09";sound[]={\Sound\vn-talks-n-09.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN10{name="vnTalksN10";sound[]={\Sound\vn-talks-n-10.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN11{name="vnTalksN11";sound[]={\Sound\vn-talks-n-11.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN12{name="vnTalksN12";sound[]={\Sound\vn-talks-n-12.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN13{name="vnTalksN13";sound[]={\Sound\vn-talks-n-13.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN14{name="vnTalksN14";sound[]={\Sound\vn-talks-n-14.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN15{name="vnTalksN15";sound[]={\Sound\vn-talks-n-15.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN16{name="vnTalksN16";sound[]={\Sound\vn-talks-n-16.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN17{name="vnTalksN17";sound[]={\Sound\vn-talks-n-17.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN18{name="vnTalksN18";sound[]={\Sound\vn-talks-n-18.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN19{name="vnTalksN19";sound[]={\Sound\vn-talks-n-19.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN20{name="vnTalksN20";sound[]={\Sound\vn-talks-n-20.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN21{name="vnTalksN21";sound[]={\Sound\vn-talks-n-21.ogg,db+1,1.0};titles[]={};};	
+	class vnTalksN22{name="vnTalksN22";sound[]={\Sound\vn-talks-n-22.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN23{name="vnTalksN23";sound[]={\Sound\vn-talks-n-23.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN24{name="vnTalksN24";sound[]={\Sound\vn-talks-n-24.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN25{name="vnTalksN25";sound[]={\Sound\vn-talks-n-25.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN26{name="vnTalksN26";sound[]={\Sound\vn-talks-n-26.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN27{name="vnTalksN27";sound[]={\Sound\vn-talks-n-27.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN28{name="vnTalksN28";sound[]={\Sound\vn-talks-n-28.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN29{name="vnTalksN29";sound[]={\Sound\vn-talks-n-29.ogg,db+1,1.0};titles[]={};};
+	class vnTalksN30{name="vnTalksN30";sound[]={\Sound\vn-talks-n-30.ogg,db+1,1.0};titles[]={};};
+	
+	class vnTalksY01{name="vnTalksY01";sound[]={\Sound\vn-talks-y-01.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY02{name="vnTalksY02";sound[]={\Sound\vn-talks-y-02.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY03{name="vnTalksY03";sound[]={\Sound\vn-talks-y-03.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY04{name="vnTalksY04";sound[]={\Sound\vn-talks-y-04.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY05{name="vnTalksY05";sound[]={\Sound\vn-talks-y-05.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY06{name="vnTalksY06";sound[]={\Sound\vn-talks-y-06.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY07{name="vnTalksY07";sound[]={\Sound\vn-talks-y-07.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY08{name="vnTalksY08";sound[]={\Sound\vn-talks-y-08.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY09{name="vnTalksY09";sound[]={\Sound\vn-talks-y-09.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY10{name="vnTalksY10";sound[]={\Sound\vn-talks-y-10.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY11{name="vnTalksY11";sound[]={\Sound\vn-talks-y-11.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY12{name="vnTalksY12";sound[]={\Sound\vn-talks-y-12.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY13{name="vnTalksY13";sound[]={\Sound\vn-talks-y-13.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY14{name="vnTalksY14";sound[]={\Sound\vn-talks-y-14.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY15{name="vnTalksY15";sound[]={\Sound\vn-talks-y-15.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY16{name="vnTalksY16";sound[]={\Sound\vn-talks-y-16.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY17{name="vnTalksY17";sound[]={\Sound\vn-talks-y-17.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY18{name="vnTalksY18";sound[]={\Sound\vn-talks-y-18.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY19{name="vnTalksY19";sound[]={\Sound\vn-talks-y-19.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY20{name="vnTalksY20";sound[]={\Sound\vn-talks-y-20.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY21{name="vnTalksY21";sound[]={\Sound\vn-talks-y-21.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY22{name="vnTalksY22";sound[]={\Sound\vn-talks-y-22.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY23{name="vnTalksY23";sound[]={\Sound\vn-talks-y-23.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY24{name="vnTalksY24";sound[]={\Sound\vn-talks-y-24.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY25{name="vnTalksY25";sound[]={\Sound\vn-talks-y-25.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY26{name="vnTalksY26";sound[]={\Sound\vn-talks-y-26.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY27{name="vnTalksY27";sound[]={\Sound\vn-talks-y-27.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY28{name="vnTalksY28";sound[]={\Sound\vn-talks-y-28.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY29{name="vnTalksY29";sound[]={\Sound\vn-talks-y-29.ogg,db+5,1.0};titles[]={};};
+	class vnTalksY30{name="vnTalksY30";sound[]={\Sound\vn-talks-y-30.ogg,db+5,1.0};titles[]={};};
+};

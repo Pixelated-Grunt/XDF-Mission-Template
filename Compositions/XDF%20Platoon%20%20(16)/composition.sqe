@@ -1,0 +1,1456 @@
+version=54;
+center[]={6646.9453,47.82766,16051.493};
+class items
+{
+	items=5;
+	class Item0
+	{
+		dataType="Group";
+		side="West";
+		class Entities
+		{
+			items=2;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-2.5419922,0.084178925,-12.224609};
+					angles[]={6.247201,2.8767216,0.035984326};
+				};
+				side="West";
+				flags=6;
+				class Attributes
+				{
+					name="S15";
+					description="OC@4-0";
+					isPlayer=1;
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=90;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="ENH_unitTraits_audibleCoef";
+						expression="[_this, ['AudibleCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male04ENG";
+							};
+						};
+					};
+					class Attribute2
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					class Attribute3
+					{
+						property="ENH_unitTraits_loadCoef";
+						expression="[_this, ['LoadCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					class Attribute4
+					{
+						property="ENH_unitTraits_camouflage";
+						expression="[_this, ['CamouflageCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					nAttributes=5;
+				};
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-2.0058594,0.0014381409,-15.060547};
+					angles[]={6.247201,6.1235223,0.035984326};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S16";
+					description="SSM";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=91;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="ENH_unitTraits_audibleCoef";
+						expression="[_this, ['AudibleCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male06ENG";
+							};
+						};
+					};
+					class Attribute2
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					class Attribute3
+					{
+						property="ENH_unitTraits_loadCoef";
+						expression="[_this, ['LoadCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					class Attribute4
+					{
+						property="ENH_unitTraits_camouflage";
+						expression="[_this, ['CamouflageCoef', _value]] remoteExec ['setUnitTrait', _this]";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+					};
+					nAttributes=5;
+				};
+			};
+		};
+		class Attributes
+		{
+			name="fourZero";
+			init="this setGroupIdGlobal [""4-0""];";
+		};
+		id=89;
+	};
+	class Item1
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={15.321289,0.94572449,-14.117188};
+		};
+		id=92;
+		type="ModuleCurator_F";
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ModuleCurator_F_Owner";
+				expression="_this setVariable ['Owner',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="S15";
+					};
+				};
+			};
+			class Attribute1
+			{
+				property="ModuleCurator_F_Forced";
+				expression="_this setVariable ['Forced',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute2
+			{
+				property="ModuleCurator_F_Name";
+				expression="_this setVariable ['Name',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute3
+			{
+				property="ModuleCurator_F_Addons";
+				expression="_this setVariable ['Addons',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=3;
+					};
+				};
+			};
+			nAttributes=4;
+		};
+	};
+	class Item2
+	{
+		dataType="Marker";
+		position[]={-2.0473633,0.31108856,-6.7138672};
+		name="respawn_west_1";
+		text="Base";
+		type="Empty";
+		id=93;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ENH_markerHideOnStart";
+				expression="        if (!isServer || is3DEN || !_value) exitWith {};        missionNamespace setVariable [format ['ENH_attributesMarker_%1_initAlpha', _this], markerAlpha _this];        _this setMarkerAlpha 0";
+				class Value
+				{
+					class data
+					{
+						singleType="BOOL";
+						value=1;
+					};
+				};
+			};
+			nAttributes=1;
+		};
+	};
+	class Item3
+	{
+		dataType="Group";
+		side="West";
+		class Entities
+		{
+			items=7;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-3.6396484,0.76950836,3.3984375};
+					angles[]={6.2245865,4.0995164,0.022662206};
+				};
+				side="West";
+				flags=6;
+				class Attributes
+				{
+					name="S14";
+					description="Patrol Commander@4-2";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=74;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male10ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.01;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-6.4462891,0.41751862,-1.4140625};
+					angles[]={0,4.3818755,0};
+				};
+				side="West";
+				flags=5;
+				class Attributes
+				{
+					name="S8";
+					description="Patrol 2IC";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=75;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male01ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=0.97000003;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-8.5371094,0.69935226,4.1191406};
+					angles[]={6.2232571,1.1846836,0.02399601};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S9";
+					description="Rifle 1";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=76;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male07ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=0.98000002;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-8.8935547,0.5196228,1.265625};
+					angles[]={6.2232571,1.3635099,0.02399601};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S11";
+					description="Rifle 2";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=77;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male04ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item4
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-8.7646484,0.35646057,-1.5351563};
+					angles[]={6.2432065,1.3473312,0.02399601};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S12";
+					description="Rifle 3";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=78;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male06ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item5
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-6.1298828,0.60253906,1.5429688};
+					angles[]={6.2232571,4.4872198,0.02399601};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S10";
+					description="Rifle 4";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=79;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male10ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.01;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item6
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-4.3632813,0.51739502,-0.58398438};
+					angles[]={6.2232571,4.4872241,0.02399601};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S13";
+					description="Rifle 5";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=80;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male10ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.01;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+		};
+		class Attributes
+		{
+			name="fourTwo";
+			init="this setGroupIdGlobal [""4-2""];";
+		};
+		id=73;
+	};
+	class Item4
+	{
+		dataType="Group";
+		side="West";
+		class Entities
+		{
+			items=7;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={3.7548828,1.2400208,4.6132813};
+					angles[]={0,4.0268011,0};
+				};
+				side="West";
+				flags=7;
+				class Attributes
+				{
+					name="S1";
+					description="Patrol Commander@4-1";
+					isPlayable=1;
+					stance="Up";
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=82;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="allowDamage";
+						expression="_this allowdamage _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=1;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male12ENG";
+							};
+						};
+					};
+					class Attribute2
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=3;
+				};
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={1.9023438,1.0627136,3.7695313};
+					angles[]={0,1.0613508,0};
+				};
+				side="West";
+				flags=5;
+				class Attributes
+				{
+					name="S2";
+					description="Patrol 2IC";
+					isPlayable=1;
+					stance="Up";
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=83;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="allowDamage";
+						expression="_this allowdamage _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=1;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male12ENG";
+							};
+						};
+					};
+					class Attribute2
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=3;
+				};
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={6.1396484,1.0604362,-0.4296875};
+					angles[]={6.2166171,4.194674,0.06656827};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S3";
+					description="Rifle 1";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=84;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male07ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=0.98000002;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={4.0419922,0.8693161,-1.40625};
+					angles[]={6.2245855,0.87701297,0.057270125};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S4";
+					description="Rifle 2 ";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=85;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male10ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.01;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item4
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.7197266,0.94240952,1.1328125};
+					angles[]={6.2245855,1.0044384,0.057270125};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S5";
+					description="Rifle 3";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=86;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male04ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item5
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={4.8769531,1.1493835,2.1542969};
+					angles[]={6.2166171,4.1598544,0.065240532};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+					name="S6";
+					description="Rifle 4";
+					isPlayable=1;
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=87;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male06ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item6
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.74707031,0.76752472,0.080078125};
+					angles[]={0,4.641109,0};
+				};
+				side="West";
+				flags=5;
+				class Attributes
+				{
+					name="S7";
+					description="Rifle 5";
+					isPlayable=1;
+					stance="Up";
+					class Inventory
+					{
+						class uniform
+						{
+							typeName="vn_b_uniform_aus_10_01";
+							isBackpack=0;
+							class ItemCargo
+							{
+								items=2;
+								class Item0
+								{
+									name="ACE_MapTools";
+									count=1;
+								};
+								class Item1
+								{
+									name="grad_paceCountBeads_functions_paceCountBeads";
+									count=1;
+								};
+							};
+						};
+						map="ItemMap";
+						compass="vn_b_item_compass";
+						watch="vn_b_item_watch";
+					};
+				};
+				id=88;
+				type="vn_b_men_sog_01";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Male12ENG";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1.03;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+		};
+		class Attributes
+		{
+			name="fourOne";
+			init="this setGroupIdGlobal [""4-1""];";
+		};
+		id=81;
+	};
+};
+class connections
+{
+	class LinkIDProvider
+	{
+		nextID=1;
+	};
+	class Links
+	{
+		items=1;
+		class Item0
+		{
+			linkID=0;
+			item0=92;
+			item1=90;
+			class CustomData
+			{
+				type="Sync";
+			};
+		};
+	};
+};
