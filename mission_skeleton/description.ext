@@ -19,7 +19,7 @@ class Header
 onLoadIntro = "Template mission";
 onLoadMissionTime = 0;
 onLoadIntroTime = 0;
-// Minor versions are for testing e.g. v0.1, major version for actual gameplay e.g. v1
+// Minor versions are for testing only e.g. v0.1, major versions for actual game nights e.g. v1
 briefingName = "COOP 1-16 XDF Base Mission v0.1";
 briefing = 0;
 respawn = 3;
