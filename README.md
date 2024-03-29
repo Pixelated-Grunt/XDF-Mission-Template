@@ -3,3 +3,5 @@ Repository contains basic components to construct XDF style missions. Check the 
 You can check out our game play videos or visit our Discord:
 * [XDF on YouTube](https://www.youtube.com/@Xtremedefenceforce)
 * [XDF Discord server](https://discord.gg/phKkcJm)
+
+License stated here applies to all files created by me **only**. Assets created from the Eden editor or any 3rd party scripts used (all respective owners are created in the wiki) are not bounded by this license.
