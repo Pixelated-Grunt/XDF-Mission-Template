@@ -4,12 +4,12 @@ author="Pixelated_Grunt";
 category="aa_uns_men_civ";
 requiredAddons[]=
 {
-	"A3_Modules_F_Curator_Curator",
-	"A3_Ui_F",
 	"characters_f_vietnam_c",
 	"A3_Weapons_F",
 	"weapons_f_vietnam_c",
 	"characters_f_vietnam_03_c",
 	"ace_maptools",
-	"grad_paceCountBeads_functions"
+	"grad_paceCountBeads_functions",
+	"A3_Modules_F_Curator_Curator",
+	"A3_Ui_F"
 };
