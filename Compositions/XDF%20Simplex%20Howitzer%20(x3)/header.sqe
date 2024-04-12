@@ -1,0 +1,11 @@
+version=54;
+name="XDF Simplex Howitzer (x3)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"uns_firebase",
+	"characters_f_vietnam_03_c",
+	"static_f_vietnam_c",
+	"sss_artillery"
+};
