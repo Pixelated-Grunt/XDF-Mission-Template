@@ -440,7 +440,7 @@ class items
 				class Attributes
 				{
 					name="S4";
-					description="Sapper (Demolition)";
+					description="Sapper (Demolitions)";
 					isPlayable=1;
 					stance="Up";
 					class Inventory
@@ -854,7 +854,7 @@ class items
 				class Attributes
 				{
 					name="S9";
-					description="Sapper (Demolition)";
+					description="Sapper (Demolitions)";
 					isPlayable=1;
 					class Inventory
 					{
@@ -1267,7 +1267,7 @@ class items
 				class Attributes
 				{
 					name="S14";
-					description="Sapper (Demolition)";
+					description="Sapper (Demolitions)";
 					isPlayable=1;
 					class Inventory
 					{
