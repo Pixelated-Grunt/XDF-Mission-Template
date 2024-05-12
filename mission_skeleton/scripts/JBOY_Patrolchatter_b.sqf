@@ -5,10 +5,11 @@ private _intervalB = _this select 1;
 
 while { ({ alive _x } count(units _grpB) > 1) } do {
     if ((behaviour leader _grpB == "Safe")) then {
-       private ["_membersB", "_memberB", "_soundB", "_random_soundB"];
+       private ["_membersB", "_memberB", "_soundB", "_random_soundB", "_dist"];
 
        _membersB = units _grpB select {!captive _x};
        _memberB = selectRandom _membersB;
+       _dist = round random [13, 91, 169];
 
        // add-remove sounds here
        _soundB = [
@@ -94,7 +95,7 @@ while { ({ alive _x } count(units _grpB) > 1) } do {
            "noAudioN30"
        ];
        _random_soundB = selectRandom _soundB;
-       [_memberB, [_random_soundB, 250, 1]] remoteExec["say3D", 0]
+       [_memberB, [_random_soundB, _dist, 1]] remoteExec["say3D", 0]
     };
     sleep _intervalB + random(1);
 };
