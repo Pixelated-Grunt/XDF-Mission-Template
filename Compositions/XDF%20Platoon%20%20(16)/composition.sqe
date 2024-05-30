@@ -579,8 +579,8 @@ class items
 		};
 		class Attributes
 		{
-			name="fourTwo";
-			init="this setGroupIdGlobal [""4-2""];";
+			name="fourOne";
+			init="this setGroupIdGlobal [""4-1""];";
 		};
 		id=2;
 	};
@@ -992,8 +992,8 @@ class items
 		};
 		class Attributes
 		{
-			name="fourOne";
-			init="this setGroupIdGlobal [""4-1""];";
+			name="fourTwo";
+			init="this setGroupIdGlobal [""4-2""];";
 		};
 		id=8;
 	};
