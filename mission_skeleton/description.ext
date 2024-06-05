@@ -264,7 +264,7 @@ class CfgSounds {
 	class vnTalksY30{name="vnTalksY30";sound[]={\Sound\vn-talks-y-30.ogg,db+5,1.0};titles[]={};};
 
 	// Halo sound effects
-	class flaggping{ name="flaggping"; sound[]={ \sound\flapping.ogg, db+3, 1.0 }; titles[]={} };
-	class open_chute{ name="open_chute"; sound[]={ \sound\open_chute.ogg, db+3, 1.0 }; titles[]={} };
-	class para_pilot{ name="para_pilot"; sound[]={ \sound\para_pilot.ogg, db+3, 1.0 }; titles[]={} };
+	class flapping { name="flapping"; sound[]={ "\sound\flapping.ogg", db+3, 1.0 }; titles[]={}; };
+	class open_chute { name="open_chute"; sound[]={ "\sound\open_chute.ogg", db+3, 1.0 }; titles[]={}; };
+	class para_pilot { name="para_pilot"; sound[]={ "\sound\para_pilot.ogg", db+3, 1.0 }; titles[]={}; };
 };

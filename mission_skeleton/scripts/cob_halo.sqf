@@ -21,7 +21,7 @@
 */
 
 
-if (!isServer) exitWith {};
+//if (!isServer) exitWith {};
 
 //Parameters
 params [
@@ -37,7 +37,7 @@ if (isNull _unit) exitWith {"Unit parameter must not be objNull. Accepted: OBJEC
 if (_altitude < 500) exitWith {"Altitude is too low for HALO. Accepted: 500 and greater." call BIS_fnc_error};
 
 //create a log entry
-//["HALO function has started"] call BIS_fnc_log;
+["HALO function has started"] call BIS_fnc_log;
 
 //add immersion effects and sound
 if (_unit == player) then {

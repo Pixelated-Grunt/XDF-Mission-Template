@@ -93,12 +93,14 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
 
         _haloObj addAction [
             "HALO Jump", {
-                params ["_target"];
+                params ["", "_caller"];
+                private _callerPos = getPos _caller;
 
-                openMap [true, true];
+                openMap [true, false];
                 sleep 1;
                 onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true";
-                [_target, 2500, false, false, true] execVM "scripts\cob_halo.sqf"
+                waitUntil { !(visiblemap) };
+                if (_callerPos isNotEqualTo getPos _caller) then { [_caller, 2500, false, false, true] execVM "scripts\cob_halo.sqf" }
             },
             [],
             1.5,
@@ -114,12 +116,14 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
 
         _laloObj addAction [
             "LALO Jump", {
-                params ["_target"];
+                params ["", "_caller"];
+                private _callerPos = getPos _caller;
 
-                openMap [true, true];
+                openMap [true, false];
                 sleep 1;
                 onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true";
-                [_target, 500, false, false, true] execVM "scripts\cob_halo.sqf"
+                waitUntil { !(visiblemap) };
+                if (_callerPos isNotEqualTo getPos _caller) then { [_caller, 500, false, true, true] execVM "scripts\cob_halo.sqf" }
             },
             [],
             1.5,
