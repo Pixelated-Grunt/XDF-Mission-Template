@@ -1,6 +1,5 @@
 /*
  * Author: Pixelated_Grunt
- * Last modified (common section): 20240324
  * Description: Common init file
  *
  */
@@ -40,23 +39,39 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
 {
     // Arsenals
     private _arsenal = objNull;
-    
+
     if ("xdf_arsenal" in _x) then {
         _arsenal = missionNamespace getVariable _x;
 
         // Open arsenal
-        _arsenal addAction ["<t color='#f5d142'>Open Arsenal</t>", {params ["_target", "_caller"]; [_target, _caller] call ace_arsenal_fnc_openBox}, [], 9, false, true, ""];
+        _arsenal addAction [
+            "<t color='#f5d142'>Open Arsenal</t>", {
+                params ["_target", "_caller"];
+
+                [_target, _caller] call ace_arsenal_fnc_openBox
+            }, [], 9, false, true, ""
+        ];
 
         // Add move player menu action
-        _arsenal addAction ["<t color='#0040ff'>Move Player</t>", {openMap [true, true]; sleep 1; onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true"}, [], 8, false, true, ""];
+        _arsenal addAction [
+            "<t color='#0040ff'>Move Player</t>", {
+                openMap [true, true];
+                sleep 1;
+                onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true"
+            }, [], 8, false, true, ""
+        ];
 
         // Add heal menu action
-        _arsenal addAction ["<t color='#00ff00'>Heal Player</t>", {[_this select 1] call ace_medical_treatment_fnc_fullHealLocal}, [], 7, false, true, ""];
+        _arsenal addAction [
+            "<t color='#00ff00'>Heal Player</t>", {
+                [_this select 1] call ace_medical_treatment_fnc_fullHealLocal
+            }, [], 7, false, true, ""
+        ];
     };
 
     // Table top radios
     if ("xdf_ncs" in _x) then {
-        _radio = missionNamespace getVariable _x;
+        private _radio = missionNamespace getVariable _x;
 
         _radio addAction [
             "Turn Radio On", {
@@ -70,7 +85,28 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
             true,
             ""
         ];
-    };    
+    };
+
+    // HALO points
+    if ("xdf_halo_pt" in _x) then {
+        private _haloObj = missionNamespace getVariable _x;
+
+        _haloObj addAction [
+            "HALO Jump", {
+                params ["_target"];
+
+                openMap [true, true];
+                sleep 1;
+                onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true";
+                [_target, 2500, false, false, true] execVM "scripts\cob_halo.sqf"
+            },
+            [],
+            1.5,
+            true,
+            true,
+            ""
+        ]
+    }
 } forEach allVariables missionNamespace;
 
 
