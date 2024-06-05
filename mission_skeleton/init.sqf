@@ -106,6 +106,27 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
             true,
             ""
         ]
+    };
+
+    // LALO points
+    if ("xdf_lalo_pt" in _x) then {
+        private _laloObj = missionNamespace getVariable _x;
+
+        _laloObj addAction [
+            "LALO Jump", {
+                params ["_target"];
+
+                openMap [true, true];
+                sleep 1;
+                onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true";
+                [_target, 500, false, false, true] execVM "scripts\cob_halo.sqf"
+            },
+            [],
+            1.5,
+            true,
+            true,
+            ""
+        ]
     }
 } forEach allVariables missionNamespace;
 
