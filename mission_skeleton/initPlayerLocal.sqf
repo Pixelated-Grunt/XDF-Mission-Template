@@ -1,6 +1,5 @@
 /*
  * Author: Pixelated_Grunt
- * Last modified: 20240324
  * Description: Init script to setup players who joined the server
  *
  */
@@ -11,15 +10,15 @@
  *
  */
 
-params ["_player", "_didJIP"];
+params ["_player"];
 
 // Add briefing to the mission map screen
 [] execVM "scripts\briefing.sqf";
 
-// Place ERV respawn point with ACE self-interaction menu, player needs to carry a PRC77 radio
+// Place ERV respawn point with ACE self-interaction menu, player needs to carry a blue spray paint
 private ["_statement", "_condition", "_action"];
 
-_condition = {[_player, "ACRE_PRC77"] call acre_api_fnc_hasKindofradio};
+_condition = {[_player, "ACE_SpraypaintBlue"] call acre_api_fnc_hasKindofradio};
 _statement = {
     private _group = groupId group _player;
     private _markerName = format["respawn_west_%1", _group];

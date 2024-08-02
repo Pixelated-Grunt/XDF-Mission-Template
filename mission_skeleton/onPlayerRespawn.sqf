@@ -1,6 +1,5 @@
 /*
  * Author: Pixelated_Grunt
- * Last modified: 20240324
  * Description: Settings triggered on players respawn
  *
  */
@@ -11,7 +10,7 @@
  *
  */
 
-params ["_newUnit", "_oldUnit", "_respawn", "_respawnDelay"];
+params ["_newUnit", "_oldUnit"];
 
 // Preserve player's gears and attributes
 // This will handle primary weapon, launcher, loadout, attritubtes properly during respawn, code doesn't handle players died inside a vehicle
