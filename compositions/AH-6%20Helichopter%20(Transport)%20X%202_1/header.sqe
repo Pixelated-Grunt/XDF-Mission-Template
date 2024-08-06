@@ -1,5 +1,5 @@
 version=54;
-name="ISC MH-6 Helichopter x 2 (Transport)";
+name="ISC MH-6 Helicopter x 2 (Transport)";
 author="Pixelated_Grunt";
 category="EdSubcat_Helicopters";
 requiredAddons[]=
