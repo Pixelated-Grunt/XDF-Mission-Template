@@ -60,7 +60,7 @@ tawvd_disablenone = true;
                 sleep 1;
                 onMapSingleClick "player setPos _pos; openMap [false, false]; onMapSingleClick ''; true";
                 waitUntil { !(visiblemap) };
-                if (_callerPos isNotEqualTo getPos _caller) then { [_caller, 2500, false, false, true] execVM "scripts\cob_halo.sqf" }
+                if (_callerPos isNotEqualTo getPos _caller) then { [_caller, 2500, false, false, false] execVM "scripts\cob_halo.sqf" }
             },
             [],
             1.5,
