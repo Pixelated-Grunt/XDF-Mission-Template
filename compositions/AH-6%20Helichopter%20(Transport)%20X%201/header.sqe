@@ -1,0 +1,13 @@
+version=54;
+name="ISC MH-6 Helichopter (Transport) ";
+author="Pixelated_Grunt";
+category="EdSubcat_Helicopters";
+requiredAddons[]=
+{
+	"A3_Characters_F",
+	"cfp_uniforms",
+	"A3_Air_F_Heli_Light_01",
+	"ace_realisticnames",
+	"acre_sys_intercom",
+	"sss_transport"
+};
