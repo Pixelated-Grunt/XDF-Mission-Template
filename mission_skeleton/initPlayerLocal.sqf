@@ -18,7 +18,7 @@ params ["_player"];
 // Place ERV respawn point with ACE self-interaction menu, player needs to carry a blue spray paint
 private ["_statement", "_condition", "_action"];
 
-_condition = {[_player, "ACE_SpraypaintBlue"] call acre_api_fnc_hasKindofradio};
+_condition = {[_player, "ACRE_PRC152"] call acre_api_fnc_hasKindofradio};
 _statement = {
     private _group = groupId group _player;
     private _markerName = format["respawn_west_%1", _group];
