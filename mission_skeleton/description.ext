@@ -55,6 +55,7 @@ allowFunctionsLog = 1;
 class CfgFunctions
 {
 	#include "taw_vd\CfgFunctions.hpp"
+	#include "ffr\functions.hpp"
 };
 
 //Sound file definitions

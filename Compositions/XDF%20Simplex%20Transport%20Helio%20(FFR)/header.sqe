@@ -1,0 +1,11 @@
+version=54;
+name="XDF Simplex Transport Helio (FFR)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"sss_transport",
+	"characters_f_vietnam_c",
+	"air_f_vietnam_03_c",
+	"A3_Structures_F_Mil_Helipads"
+};

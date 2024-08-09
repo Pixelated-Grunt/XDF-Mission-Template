@@ -28,6 +28,9 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
 //[] execVM "scripts\Chatter_c.sqf";
 //[] execVM "scripts\Chatter_d.sqf";
 
+// Free Fall off the Ramp
+[] execVM "ffr\ffr_init.sqf";
+
 // Setup default radio frequency
 [MAINRADIO, "default", "xdf_default_net"] call acre_api_fnc_copyPreset;
 [MAINRADIO, "xdf_default_net", 1, "label", "NET"] call acre_api_fnc_setPresetChannelField;
