@@ -1,7 +1,7 @@
 version=54;
-name="ISC MH-6 Helicopter (Transport) ";
+name="ISC MH-6 Helicopter (Transport)";
 author="Pixelated_Grunt";
-category="EdSubcat_Helicopters";
+category="EdSubcat_Services";
 requiredAddons[]=
 {
 	"A3_Characters_F",

@@ -4,23 +4,23 @@
  */
 
 author = "XDF Mission Team";
-OnLoadName = "XDF Base Mission";
+OnLoadName = "Project-X Template Mission";
 onLoadMission = "Template mission";
 // if mission picture is available
 loadScreen = "mission.paa";
 
 class Header
-{	
-	gameType = Coop;
-	minPlayers = 1;
-	maxPlayers = 16;
+{
+    gameType = Coop;
+    minPlayers = 1;
+    maxPlayers = 16;
 };
 
 onLoadIntro = "Template mission";
 onLoadMissionTime = 0;
 onLoadIntroTime = 0;
 // Minor versions are for testing only e.g. v0.1, major versions for actual game nights e.g. v1
-briefingName = "COOP 1-16 XDF Base Mission v0.1";
+briefingName = "COOP 1-16 Project-X Template Mission v0.1";
 briefing = 0;
 respawn = 3;
 respawnTemplates[] = {"MenuPosition"};
@@ -54,13 +54,14 @@ allowFunctionsLog = 1;
 #include "taw_vd\GUI.h"
 class CfgFunctions
 {
-	#include "taw_vd\CfgFunctions.hpp"
+    #include "taw_vd\CfgFunctions.hpp"
+    #include "ffr\functions.hpp"
 };
 
 //Sound file definitions
 class CfgSounds {
-	// Halo sound effects
-	class flapping { name="flapping"; sound[]={ "\sound\flapping.ogg", db+3, 1.0 }; titles[]={}; };
-	class open_chute { name="open_chute"; sound[]={ "\sound\open_chute.ogg", db+3, 1.0 }; titles[]={}; };
-	class para_pilot { name="para_pilot"; sound[]={ "\sound\para_pilot.ogg", db+3, 1.0 }; titles[]={}; };
+    // Halo sound effects
+    class flapping { name="flapping"; sound[]={ "\sound\flapping.ogg", db+3, 1.0 }; titles[]={}; };
+    class open_chute { name="open_chute"; sound[]={ "\sound\open_chute.ogg", db+3, 1.0 }; titles[]={}; };
+    class para_pilot { name="para_pilot"; sound[]={ "\sound\para_pilot.ogg", db+3, 1.0 }; titles[]={}; };
 };

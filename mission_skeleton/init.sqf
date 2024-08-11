@@ -10,8 +10,12 @@
  *
  */
 
+
 // View Distance Settings
 tawvd_disablenone = true;
+
+// Free Fall off the Ramp
+[] execVM "ffr\ffr_init.sqf";
 
 // Add menu actions to various mission objects with predefined variable names
 {

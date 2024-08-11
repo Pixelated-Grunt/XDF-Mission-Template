@@ -1,0 +1,11 @@
+version=54;
+name="ISC MH-47 Helicopter (FFR)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"A3_Structures_F_Mil_Helipads",
+	"sss_transport",
+	"CUP_Creatures_Military_USArmy",
+	"CUP_AirVehciles_MH47E"
+};

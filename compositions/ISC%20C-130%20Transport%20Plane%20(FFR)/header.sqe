@@ -1,0 +1,10 @@
+version=54;
+name="ISC C-130 Transport Plane (FFR)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"CUP_Creatures_Military_USMC",
+	"CUP_AirVehicles_C130J",
+	"sss_transport"
+};
