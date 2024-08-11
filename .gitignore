@@ -28,3 +28,6 @@ temp.sqf
 #BACKUPS
 mission.sqm.old*
 .ccls-cache/
+
+#COMPOSITIONS
+compositions/XDF*
