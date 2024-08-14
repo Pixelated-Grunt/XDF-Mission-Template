@@ -1,0 +1,2 @@
+#define PREFIX XDF
+#define DEBUG_MODE_FULL 1
