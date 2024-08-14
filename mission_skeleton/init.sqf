@@ -10,6 +10,11 @@
  *
  */
 
+// List of XDF access items
+XDF_MF_accessItems = createHashMapFromArray [
+    ["SETERV", "ACRE_PRC152"],
+    ["CLEARVEG", "ACE_EntrenchingTool"]
+];
 
 // View Distance Settings
 tawvd_disablenone = true;
