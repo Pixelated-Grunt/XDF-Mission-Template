@@ -27,14 +27,10 @@ params ["_player"];
     {},
     {
         private _actions = count ([_this # 1] call FUNC(getUnitAllowedActions));
+        private _res = [false, true] select ( _actions > 0 );
 
-        if (_actions > 0) then {
-            _player setVariable [QGVARMAIN(aceMenuExist), true];
-            true
-        } else {
-            _player setVariable [QGVARMAIN(aceMenuExist), false];
-            false
-        }
+        _player setVariable [QGVARMAIN(aceMenuExist), _res];
+        _res
     },
     {
         params ["", "_player"];
