@@ -59,3 +59,31 @@ private _targets = [0, -2] select isDedicated;
         [_aircraft] call ffr_main_fnc_cleanUp;
     }, nil, 0, false, false, "", "!isNull (_target getVariable ['ffr_dummy', objNull]) && {!isNull (_target getVariable ['ffr_jumplight', objNull])} && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this || {_this in group driver _target}}}"]
 ] remoteExec ["addAction", _targets, true];
+
+// Add for CUP C-130 static, it is always placed in editor as compositions
+// no need for remoteExec. Also, the stand up action will not be available
+// since this is a typeOf house instead of vehicle
+if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
+    private _vehsNearby = nearestObjects [_aircraft, ["Car", "Ship"], 10];
+    private _veh = objNull;
+
+    {
+        if (_x isKindOf "tacs_Polaris_Base" || _x isKindOf "I_G_Boat_Transport_01_F") then {
+            _veh = _x;
+            break
+        }
+    } forEach _vehsNearby;
+
+    if !(isNull _veh) then {
+        _aircraft addAction ["Drop Vehicle", {
+            params ["_aircraft", "", "_actionId", "_veh"];
+
+            _aircraft removeAction _actionId;
+            // The tail of the C-130 static is where it's pointing
+            private _dropPos = _aircraft getRelPos [50, getDir _aircraft];
+
+            _dropPos set [2, (getPosASL _aircraft) # 2];
+            [_veh, _dropPos] call XDF_MF_fnc_paradropVehicle
+        }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this}}"]
+    }
+}
