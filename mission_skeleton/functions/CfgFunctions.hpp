@@ -6,6 +6,7 @@ class XDF_MF {
         class clearVegetation {};
         class createUnitAceMenu {};
         class getUnitAllowedActions {};
+        class paradropVehicle {};
         class setERV {};
     };
 };
