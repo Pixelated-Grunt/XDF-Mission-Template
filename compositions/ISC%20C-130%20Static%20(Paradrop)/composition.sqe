@@ -1,0 +1,22 @@
+version=54;
+center[]={7920.772,30.327854,9740.1836};
+class items
+{
+	items=1;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0,6.0442123,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			init="[this] call ffr_main_fnc_prepAircraft; " \n "this setVariable [""ffr_jumpInfo"", " \n "  [["""", [""ramp_bottom"", ""ramp_top""]], " \n "  [0, -3, -2.01] " \n "]]";
+		};
+		id=55;
+		type="C130J_static_EP1";
+	};
+};
