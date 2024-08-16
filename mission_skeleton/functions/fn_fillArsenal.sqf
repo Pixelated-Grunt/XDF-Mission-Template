@@ -19,15 +19,21 @@
 if !(isServer) exitWith {};
 
 params ["_arsenal"];
-private ["_content"];
 
-_content = missionNamespace getVariable QGVARMAIN(arsenal_virtualItems);
-if (isNil "_content") then {_content = execVM "..\scritps\initArsenal.inc.sqf"};
+if (isNil {missionNamespace getVariable QGVARMAIN(virtualItems)}) then {execVM "scripts\initArsenal.inc.sqf"};
 
-clearWeaponCargoGlobal _arsenal;
-clearMagazineCargoGlobal _arsenal;
-clearItemCargoGlobal _arsenal;
-clearBackpackCargoGlobal _arsenal;
-[_arsenal, _content] call ace_arsenal_fnc_initBox;
-
-missionNamespace setVariable [QGVARMAIN(arsenal_virtualItems), _content]
+[
+    {!(isNil {missionNamespace getVariable QGVARMAIN(virtualItems)})},
+    {
+        params ["_arsenal"];
+        private _content = missionNamespace getVariable QGVARMAIN(virtualItems);
+        clearWeaponCargoGlobal _arsenal;
+        clearMagazineCargoGlobal _arsenal;
+        clearItemCargoGlobal _arsenal;
+        clearBackpackCargoGlobal _arsenal;
+        [_arsenal, _content] call ace_arsenal_fnc_initBox
+    },
+    [_arsenal],
+    5,
+    {WARNING_1("Arsenal: (%1) failed to populate.", (_this#0))}
+] call CBA_fnc_waitUntilAndExecute

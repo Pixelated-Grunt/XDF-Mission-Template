@@ -30,4 +30,5 @@ private _genericItems = ["launch_NLAW_F", "launch_MRAWS_green_F", "optic_ERCO_bl
 //Complete list
 private _fullList = _ace3Items + _acre2Items + _cupItems + _cfpItems + _smaItems + _tacsItems + _genericItems;
 
-_fullList
+//diag_log("XDF [MF] INFO: Setting up XDF_virtualItems variable.");
+missionNamespace setVariable ["XDF_virtualItems", _fullList]
