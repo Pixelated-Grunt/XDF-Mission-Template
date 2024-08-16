@@ -5,7 +5,6 @@ category="EdSubcat_Services";
 requiredAddons[]=
 {
 	"CUP_Misc_e_Config",
-	"tacs_main",
-	"tacs_vests",
-	"tacs_backpacks"
+	"A3_Weapons_F_Ammoboxes",
+	"ace_cargo"
 };
