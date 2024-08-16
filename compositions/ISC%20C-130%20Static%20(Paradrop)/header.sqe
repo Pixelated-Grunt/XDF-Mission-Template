@@ -1,8 +1,11 @@
 version=54;
 name="ISC C-130 Static (Paradrop)";
 author="Pixelated_Grunt";
-category="EdSubcat_CUP_Winter_objects";
+category="EdSubcat_Services";
 requiredAddons[]=
 {
-	"CUP_Misc_e_Config"
+	"CUP_Misc_e_Config",
+	"tacs_main",
+	"tacs_vests",
+	"tacs_backpacks"
 };

@@ -1,14 +1,15 @@
 version=54;
-center[]={7920.772,30.327854,9740.1836};
+center[]={7921.7217,30.469728,9660.5605};
 class items
 {
-	items=1;
+	items=2;
 	class Item0
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0,6.0442123,0};
+			position[]={0.30322266,6.0442104,4.2363281};
+			angles[]={0.012007865,0,0.0039968039};
 		};
 		side="Empty";
 		flags=4;
@@ -16,7 +17,25 @@ class items
 		{
 			init="[this] call ffr_main_fnc_prepAircraft; " \n "this setVariable [""ffr_jumpInfo"", " \n "  [["""", [""ramp_bottom"", ""ramp_top""]], " \n "  [0, -3, -2.01] " \n "]]";
 		};
-		id=55;
+		id=37;
 		type="C130J_static_EP1";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.30615234,2.1591167,-4.2246094};
+			angles[]={0.012007865,0,0.0039968039};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			name="xdf_arsenal_c130s";
+		};
+		id=38;
+		type="tacs_Box_Wearables";
+		atlOffset=0.0018730164;
 	};
 };
