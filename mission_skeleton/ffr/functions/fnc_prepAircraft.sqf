@@ -68,7 +68,7 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
     private _veh = objNull;
 
     {
-        if (_x isKindOf "tacs_Polaris_Base" || _x isKindOf "I_G_Boat_Transport_01_F") then {
+        if (_x isKindOf "tacs_Polaris_Base" || _x isKindOf "Rubber_duck_base_F") then {
             _veh = _x;
             break
         }
