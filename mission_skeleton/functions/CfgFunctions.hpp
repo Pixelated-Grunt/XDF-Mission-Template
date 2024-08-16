@@ -5,6 +5,7 @@ class XDF_MF {
         file = "functions";
         class clearVegetation {};
         class createUnitAceMenu {};
+        class fillArsenal {};
         class getUnitAllowedActions {};
         class paradropVehicle {};
         class setERV {};
