@@ -83,6 +83,7 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
             private _dropPos = _aircraft getRelPos [50, getDir _aircraft];
 
             _dropPos set [2, (getPosASL _aircraft) # 2];
+            [_veh] call XDF_MF_fnc_addArsenalToCargo;
             [_veh, _dropPos] call XDF_MF_fnc_paradropVehicle
         }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this}}"]
     }
