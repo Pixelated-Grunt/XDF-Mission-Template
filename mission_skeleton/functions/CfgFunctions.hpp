@@ -3,6 +3,7 @@ class XDF_MF {
 
     class common {
         file = "functions";
+        class addArsenalToCargo {};
         class clearVegetation {};
         class createUnitAceMenu {};
         class fillArsenal {};
