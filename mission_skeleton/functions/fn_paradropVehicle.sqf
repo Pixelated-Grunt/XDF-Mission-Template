@@ -18,13 +18,14 @@
 **/
 
 
+if (!isServer) exitWith {};
 params ["_vehicle", "_destPos"];
 
 private ["_class", "_para", "_paras", "_p"];
 
 _vehicle allowDamage false;
 
-// push the vehicle out of the C-130
+//push the vehicle out of the C-130 static
 _vehicle setPosASL _destPos;
 
 _class = "B_parachute_02_F";
@@ -41,8 +42,8 @@ if ("tacs_Polaris_B" in (typeOf _vehicle)) then {
         _p attachTo [_para, [0, 0, 0]];
         _p setVectorUp _x
     } count [
-        [0.5, 0.4, 0.6], [-0.5, 0.4, 0.6], [0.5, -0.4, 0.6], [-0.5, -0.4, 0.6]
-        //[0.5, 0.4, 0.6], [-0.5, 0.4, 0.6]
+        //[0.5, 0.4, 0.6], [-0.5, 0.4, 0.6], [0.5, -0.4, 0.6], [-0.5, -0.4, 0.6]
+        [0.5, 0.4, 0.6], [-0.5, 0.4, 0.6]
     ]
 };
 
@@ -52,22 +53,11 @@ if ("tacs_Polaris_B" in (typeOf _vehicle)) then {
     _parachute setVectorUp [0, 0, 1];
     isNull _object || !alive _parachute
 }, {
-    params ["_object","_parachute","_signals"];
+    params ["_object","_parachute"];
 
     if (!alive _parachute && getPos _object # 2 < 2) then {
         _object setVectorUp surfaceNormal getPosWorld _object;
         _object setVelocity [0, 0, 0];
-
-//        _signals params [
-//            ["_signal1Class","",[""]],  //SmokeShellBlue
-//            ["_signal2Class","",[""]]   //ACE_G_Chemlight_HiBlue
-//        ];
-//
-//        private _offset = (boundingBoxReal _object) # 0;
-//        private _signal1 = _signal1Class createVehicle [0,0,0];
-//        _signal1 attachTo [_object,_offset];
-//        private _signal2 = _signal2Class createVehicle [0,0,0];
-//        _signal2 attachTo [_object,_offset];
 
         playSound3D [
             "a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss",

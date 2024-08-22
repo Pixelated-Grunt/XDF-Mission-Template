@@ -18,6 +18,7 @@
 **/
 
 
+if (!isServer) exitWith {};
 params [
     ["_vehicle", objNull, [objNull]],
     ["_addCargoSpace", true, [true]],
@@ -41,7 +42,13 @@ if !isNull(_crate) then {
     _crate hideObjectGlobal true;
     [_crate] call FUNC(fillArsenal);
     if ([_crate, _vehicle, true] call ace_cargo_fnc_loadItem) then {
-        _crate hideObjectGlobal false;
+        [
+            {((getPos _this)#2) < 5},
+            {_this hideObjectGlobal false},
+            _crate,
+            -1,
+            {_this hideObjectGlobal false}
+        ] call CBA_fnc_waitUntilAndExecute;
         _result = true
     } else { TRACE_1("Failed to load crate into %1.", typeOf _vehicle) }
 } else {

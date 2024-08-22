@@ -16,11 +16,11 @@
 **/
 
 
-if !(isServer) exitWith {};
+if (!isServer) exitWith {};
 
-params ["_arsenal", "_content", "_fnc_statement"];
+params ["_arsenal"];
 
-_fnc_statement = {
+private _fnc_statement = {
     params ["_arsenal"];
     clearWeaponCargoGlobal _arsenal;
     clearMagazineCargoGlobal _arsenal;
@@ -29,7 +29,7 @@ _fnc_statement = {
     [_arsenal, missionNamespace getVariable QGVARMAIN(virtualItems)] call ace_arsenal_fnc_initBox
 };
 
-_content = missionNamespace getVariable QGVARMAIN(virtualItems);
+private _content = missionNamespace getVariable QGVARMAIN(virtualItems);
 if !(isNil "_content") then {
     [_arsenal] call _fnc_statement
 } else {
