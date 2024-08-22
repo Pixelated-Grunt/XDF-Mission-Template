@@ -99,8 +99,6 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
         }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this}}"]
     }
 } else {
-    // For easy testing on self host server
-    private _targets = [0, -2] select isDedicated;
-
-    {[_aircraft, _x] remoteExec ["addAction", _targets, true]} forEach _commonActions
+    // For easy testing on self host server to run on everyone
+    {[_aircraft, _x] remoteExec ["addAction", [0, -2] select isDedicated, true]} forEach _commonActions
 }
