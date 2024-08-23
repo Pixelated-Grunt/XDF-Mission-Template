@@ -1,14 +1,14 @@
 version=54;
-center[]={7919.043,31.040003,9503.6299};
+center[]={7920.4761,30.0746,9884.0752};
 class items
 {
-	items=2;
+	items=1;
 	class Item0
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0.29492188,6.0442104,4.2548828};
+			position[]={0,6.0442123,0};
 			angles[]={0.012007865,0,0.0039968039};
 		};
 		side="Empty";
@@ -16,43 +16,9 @@ class items
 		class Attributes
 		{
 			init="[this] call ffr_main_fnc_prepAircraft; " \n "this setVariable [""ffr_jumpInfo"", " \n "  [["""", [""ramp_bottom"", ""ramp_top""]], " \n "  [0, -3, -2.01] " \n "]]";
+			name="xdf_c130s_1";
 		};
-		id=181;
+		id=208;
 		type="C130J_static_EP1";
-		atlOffset=1.9073486e-006;
-	};
-	class Item1
-	{
-		dataType="Object";
-		class PositionInfo
-		{
-			position[]={-0.29833984,2.1577663,-4.2441406};
-			angles[]={0.012007865,0,0.0039968039};
-		};
-		side="Empty";
-		flags=4;
-		class Attributes
-		{
-			name="xdf_arsenal_c130s";
-		};
-		id=184;
-		type="B_supplyCrate_F";
-		class CustomAttributes
-		{
-			class Attribute0
-			{
-				property="ammoBox";
-				expression="[_this,_value] call bis_fnc_initAmmoBox;";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="[[[[""launch_NLAW_F"",""arifle_MX_F"",""arifle_MX_SW_F"",""FirstAidKit""],[1,2,1,10]],[[""30Rnd_65x39_caseless_mag"",""16Rnd_9x21_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""20Rnd_762x51_Mag"",""100Rnd_65x39_caseless_mag"",""1Rnd_HE_Grenade_shell"",""3Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""Chemlight_green"",""NLAW_F"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellGreen"",""UGL_FlareWhite_F"",""UGL_FlareGreen_F"",""ACE_SpareBarrel"",""ACE_30Rnd_65x47_Scenar_mag"",""ACE_30Rnd_65_Creedmor_mag"",""ACE_10Rnd_762x51_M118LR_Mag"",""ACE_20Rnd_762x51_M118LR_Mag"",""ACE_10Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_10Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mag_Tracer"",""ACE_20Rnd_762x51_Mag_Tracer_Dim""],[24,6,6,6,6,3,1,2,2,6,3,2,6,6,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4]],[[""Laserdesignator"",""acc_flashlight"",""bipod_01_F_blk"",""ACE_Chemlight_Shield"",""ACE_EarPlugs""],[1,2,1,12,12]],[[""B_Kitbag_mcamo""],[2]]],false]";
-					};
-				};
-			};
-			nAttributes=1;
-		};
 	};
 };

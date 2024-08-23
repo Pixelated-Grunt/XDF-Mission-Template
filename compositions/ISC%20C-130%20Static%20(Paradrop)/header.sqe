@@ -4,7 +4,5 @@ author="Pixelated_Grunt";
 category="EdSubcat_Services";
 requiredAddons[]=
 {
-	"CUP_Misc_e_Config",
-	"A3_Weapons_F_Ammoboxes",
-	"ace_cargo"
+	"CUP_Misc_e_Config"
 };
