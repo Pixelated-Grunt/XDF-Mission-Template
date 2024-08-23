@@ -1,5 +1,5 @@
 version=54;
-center[]={4805.3398,5,5761.7788};
+center[]={7921.3711,30.690102,9642.0654};
 class items
 {
 	items=3;
@@ -15,32 +15,32 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-1.9707031,0.0014386177,4.3334961};
-					angles[]={-0,1.5930842,0};
+					position[]={-1.9853516,0.0014381409,4.3789063};
 				};
 				side="West";
 				flags=6;
 				class Attributes
 				{
 				};
-				id=157;
+				id=219;
 				type="CUP_B_USMC_Pilot";
+				atlOffset=0.041999817;
 			};
 			class Item1
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-1.9707031,5.6604939,4.3574219};
-					angles[]={-0,1.5930842,0};
+					position[]={-1.9853516,5.6604958,4.4023438};
 				};
 				side="West";
 				flags=4;
 				class Attributes
 				{
 				};
-				id=158;
+				id=220;
 				type="CUP_B_USMC_Pilot";
+				atlOffset=0.041999817;
 			};
 		};
 		class Attributes
@@ -58,8 +58,8 @@ class items
 				class Item0
 				{
 					linkID=0;
-					item0=157;
-					item1=159;
+					item0=219;
+					item1=221;
 					class CustomData
 					{
 						role=1;
@@ -68,8 +68,8 @@ class items
 				class Item1
 				{
 					linkID=1;
-					item0=158;
-					item1=159;
+					item0=220;
+					item1=221;
 					class CustomData
 					{
 						role=2;
@@ -78,15 +78,15 @@ class items
 				};
 			};
 		};
-		id=156;
+		id=218;
+		atlOffset=0.041999817;
 	};
 	class Item1
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.5771484,5.6590557,4.0961914};
-			angles[]={-0,1.5930842,0};
+			position[]={1.5625,5.6586609,4.1416016};
 		};
 		side="West";
 		flags=6;
@@ -94,8 +94,9 @@ class items
 		{
 			textures="USMCDarkGrey";
 		};
-		id=159;
+		id=221;
 		type="CUP_B_C130J_USMC";
+		atlOffset=0.041999817;
 		class CustomAttributes
 		{
 			class Attribute0
@@ -169,11 +170,12 @@ class items
 		dataType="Logic";
 		class PositionInfo
 		{
-			position[]={-3.1552734,0,-8.1455078};
+			position[]={-3.1699219,0,-8.1005859};
 			angles[]={0,6.2675295,0};
 		};
-		id=155;
+		id=222;
 		type="sss_transport_moduleAddPlane";
+		atlOffset=-0.084907532;
 		class CustomAttributes
 		{
 			class Attribute0
@@ -484,8 +486,8 @@ class connections
 		class Item0
 		{
 			linkID=0;
-			item0=155;
-			item1=159;
+			item0=222;
+			item1=221;
 			class CustomData
 			{
 				type="Sync";
@@ -505,8 +507,8 @@ class VehicleInVehicleLinks
 		class Item0
 		{
 			linkID=0;
-			item0=157;
-			item1=159;
+			item0=219;
+			item1=221;
 			class CustomData
 			{
 				role=1;
@@ -515,8 +517,8 @@ class VehicleInVehicleLinks
 		class Item1
 		{
 			linkID=1;
-			item0=158;
-			item1=159;
+			item0=220;
+			item1=221;
 			class CustomData
 			{
 				role=2;

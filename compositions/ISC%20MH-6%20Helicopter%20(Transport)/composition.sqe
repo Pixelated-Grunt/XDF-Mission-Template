@@ -1,5 +1,5 @@
 version=54;
-center[]={5032.5586,5,5796.8486};
+center[]={7920.2183,30.565247,9653.1924};
 class items
 {
 	items=3;
@@ -15,30 +15,32 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-15.485352,0.0014390945,-14.337891};
+					position[]={-15.490234,0.0014381409,-14.328125};
 				};
 				side="West";
 				flags=6;
 				class Attributes
 				{
 				};
-				id=6;
+				id=249;
 				type="B_Helipilot_F";
+				atlOffset=-0.0060005188;
 			};
 			class Item1
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-15.485352,1.7805834,-14.336914};
+					position[]={-15.490234,1.7805824,-14.327148};
 				};
 				side="West";
 				flags=4;
 				class Attributes
 				{
 				};
-				id=7;
+				id=250;
 				type="B_Helipilot_F";
+				atlOffset=-0.0060005188;
 			};
 		};
 		class Attributes
@@ -56,8 +58,8 @@ class items
 				class Item0
 				{
 					linkID=0;
-					item0=6;
-					item1=8;
+					item0=249;
+					item1=251;
 					class CustomData
 					{
 						role=1;
@@ -66,8 +68,8 @@ class items
 				class Item1
 				{
 					linkID=1;
-					item0=7;
-					item1=8;
+					item0=250;
+					item1=251;
 					class CustomData
 					{
 						role=2;
@@ -76,32 +78,52 @@ class items
 				};
 			};
 		};
-		id=5;
+		id=248;
+		atlOffset=-0.0060005188;
 	};
 	class Item1
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={1.4482422,1.7791443,-0.048828125};
+			position[]={1.4433594,1.7793961,-0.0390625};
 		};
 		side="West";
 		flags=6;
 		class Attributes
 		{
 		};
-		id=8;
+		id=251;
 		type="B_Heli_Light_01_F";
+		atlOffset=-0.0060005188;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ammoBox";
+				expression="[_this,_value] call bis_fnc_initAmmoBox;";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+					};
+				};
+			};
+			nAttributes=1;
+		};
 	};
 	class Item2
 	{
 		dataType="Logic";
 		class PositionInfo
 		{
-			position[]={-2.8964844,0,0.098144531};
+			position[]={-2.9013672,0,0.10839844};
 		};
-		id=9;
+		id=252;
 		type="sss_transport_moduleAddHelicopter";
+		atlOffset=0.012384415;
 		class CustomAttributes
 		{
 			class Attribute0
@@ -483,8 +505,8 @@ class connections
 		class Item0
 		{
 			linkID=0;
-			item0=9;
-			item1=8;
+			item0=252;
+			item1=251;
 			class CustomData
 			{
 				type="Sync";
@@ -504,8 +526,8 @@ class VehicleInVehicleLinks
 		class Item0
 		{
 			linkID=0;
-			item0=6;
-			item1=8;
+			item0=249;
+			item1=251;
 			class CustomData
 			{
 				role=1;
@@ -514,8 +536,8 @@ class VehicleInVehicleLinks
 		class Item1
 		{
 			linkID=1;
-			item0=7;
-			item1=8;
+			item0=250;
+			item1=251;
 			class CustomData
 			{
 				role=2;

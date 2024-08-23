@@ -1,5 +1,5 @@
 version=54;
-center[]={5035.8491,5,5800.4531};
+center[]={7924.7012,30.581745,9652.6602};
 class items
 {
 	items=6;
@@ -15,30 +15,32 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-21.595215,0.0014390945,-14.884277};
+					position[]={-10.141602,0.0014381409,-14.470703};
 				};
 				side="West";
 				flags=6;
 				class Attributes
 				{
 				};
-				id=17;
+				id=260;
 				type="B_Helipilot_F";
+				atlOffset=-0.023000717;
 			};
 			class Item1
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-21.595215,1.7805834,-14.883301};
+					position[]={-10.141602,1.7805824,-14.469727};
 				};
 				side="West";
 				flags=4;
 				class Attributes
 				{
 				};
-				id=18;
+				id=261;
 				type="B_Helipilot_F";
+				atlOffset=-0.023000717;
 			};
 		};
 		class Attributes
@@ -56,8 +58,8 @@ class items
 				class Item0
 				{
 					linkID=0;
-					item0=17;
-					item1=19;
+					item0=260;
+					item1=262;
 					class CustomData
 					{
 						role=1;
@@ -66,8 +68,8 @@ class items
 				class Item1
 				{
 					linkID=1;
-					item0=18;
-					item1=19;
+					item0=261;
+					item1=262;
 					class CustomData
 					{
 						role=2;
@@ -76,499 +78,52 @@ class items
 				};
 			};
 		};
-		id=16;
+		id=259;
+		atlOffset=-0.023000717;
 	};
 	class Item1
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-3.9003906,1.7791443,0.095703125};
+			position[]={6.7919922,1.7795067,-0.18164063};
 		};
 		side="West";
 		flags=6;
 		class Attributes
 		{
 		};
-		id=19;
+		id=262;
 		type="B_Heli_Light_01_F";
+		atlOffset=-0.023000717;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ammoBox";
+				expression="[_this,_value] call bis_fnc_initAmmoBox;";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+					};
+				};
+			};
+			nAttributes=1;
+		};
 	};
 	class Item2
 	{
 		dataType="Logic";
 		class PositionInfo
 		{
-			position[]={-8.2446289,0,0.24267578};
+			position[]={2.4472656,0,-0.03515625};
 		};
-		id=20;
+		id=263;
 		type="sss_transport_moduleAddHelicopter";
-		class CustomAttributes
-		{
-			class Attribute0
-			{
-				property="sss_transport_RespawnDelay";
-				expression="_this setVariable ['RespawnDelay',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=60;
-					};
-				};
-			};
-			class Attribute1
-			{
-				property="sss_transport_RelocationDelay";
-				expression="_this setVariable ['RelocationDelay',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=60;
-					};
-				};
-			};
-			class Attribute2
-			{
-				property="sss_transport_Callsign";
-				expression="_this setVariable ['Callsign',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="Kilo Echo 2";
-					};
-				};
-			};
-			class Attribute3
-			{
-				property="sss_transport_AccessCondition";
-				expression="_this setVariable ['AccessCondition',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="true";
-					};
-				};
-			};
-			class Attribute4
-			{
-				property="sss_transport_VehicleInit";
-				expression="_this setVariable ['VehicleInit',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="";
-					};
-				};
-			};
-			class Attribute5
-			{
-				property="sss_transport_RequestCondition";
-				expression="_this setVariable ['RequestCondition',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="true";
-					};
-				};
-			};
-			class Attribute6
-			{
-				property="sss_transport_RemoteAccess";
-				expression="_this setVariable ['RemoteAccess',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="BOOL";
-						value=1;
-					};
-				};
-			};
-			class Attribute7
-			{
-				property="sss_transport_Side";
-				expression="_this setVariable ['Side',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=0;
-					};
-				};
-			};
-			class Attribute8
-			{
-				property="sss_transport_TaskTypes";
-				expression="_this setVariable ['TaskTypes',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="ARRAY";
-						class value
-						{
-							items=15;
-							class Item0
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item1
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item2
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item3
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item4
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item5
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item6
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item7
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item8
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item9
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item10
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item11
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item12
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item13
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-							class Item14
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-						};
-					};
-				};
-			};
-			class Attribute9
-			{
-				property="sss_transport_RemoteControl";
-				expression="_this setVariable ['RemoteControl',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=1;
-					};
-				};
-			};
-			class Attribute10
-			{
-				property="sss_transport_AccessItemsLogic";
-				expression="_this setVariable ['AccessItemsLogic',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=0;
-					};
-				};
-			};
-			class Attribute11
-			{
-				property="sss_auth";
-				expression="_this setVariable ['sss_auth',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="";
-					};
-				};
-			};
-			class Attribute12
-			{
-				property="sss_transport_AccessItems";
-				expression="_this setVariable ['AccessItems',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="STRING";
-						value="ACRE_PRC152";
-					};
-				};
-			};
-			class Attribute13
-			{
-				property="sss_transport_AltitudeLimits";
-				expression="_this setVariable ['AltitudeLimits',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="ARRAY";
-						class value
-						{
-							items=2;
-							class Item0
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0;
-								};
-							};
-							class Item1
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=3000;
-								};
-							};
-						};
-					};
-				};
-			};
-			class Attribute14
-			{
-				property="sss_transport_MaxTasks";
-				expression="_this setVariable ['MaxTasks',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=-1;
-					};
-				};
-			};
-			class Attribute15
-			{
-				property="sss_transport_MaxTimeout";
-				expression="_this setVariable ['MaxTimeout',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=300;
-					};
-				};
-			};
-			class Attribute16
-			{
-				property="sss_transport_Relocation";
-				expression="_this setVariable ['Relocation',_value,true];";
-				class Value
-				{
-					class data
-					{
-						singleType="SCALAR";
-						value=0;
-					};
-				};
-			};
-			nAttributes=17;
-		};
-	};
-	class Item3
-	{
-		dataType="Group";
-		side="West";
-		class Entities
-		{
-			items=2;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={-10.137207,0.0014390945,-14.481445};
-				};
-				side="West";
-				flags=6;
-				class Attributes
-				{
-				};
-				id=12;
-				type="B_Helipilot_F";
-			};
-			class Item1
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={-10.137207,1.7805834,-14.480469};
-				};
-				side="West";
-				flags=4;
-				class Attributes
-				{
-				};
-				id=13;
-				type="B_Helipilot_F";
-			};
-		};
-		class Attributes
-		{
-		};
-		class CrewLinks
-		{
-			class LinkIDProvider
-			{
-				nextID=2;
-			};
-			class Links
-			{
-				items=2;
-				class Item0
-				{
-					linkID=0;
-					item0=12;
-					item1=14;
-					class CustomData
-					{
-						role=1;
-					};
-				};
-				class Item1
-				{
-					linkID=1;
-					item0=13;
-					item1=14;
-					class CustomData
-					{
-						role=2;
-						turretPath[]={0};
-					};
-				};
-			};
-		};
-		id=11;
-	};
-	class Item4
-	{
-		dataType="Object";
-		class PositionInfo
-		{
-			position[]={6.7963867,1.7791443,-0.19238281};
-		};
-		side="West";
-		flags=6;
-		class Attributes
-		{
-		};
-		id=14;
-		type="B_Heli_Light_01_F";
-	};
-	class Item5
-	{
-		dataType="Logic";
-		class PositionInfo
-		{
-			position[]={2.4516602,0,-0.045898438};
-		};
-		id=15;
-		type="sss_transport_moduleAddHelicopter";
+		atlOffset=-0.0078334808;
 		class CustomAttributes
 		{
 			class Attribute0
@@ -937,6 +492,495 @@ class items
 			nAttributes=17;
 		};
 	};
+	class Item3
+	{
+		dataType="Group";
+		side="West";
+		class Entities
+		{
+			items=2;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-21.599609,0.0014381409,-14.874023};
+				};
+				side="West";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=255;
+				type="B_Helipilot_F";
+				atlOffset=0.01099968;
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-21.599609,1.7805824,-14.87207};
+				};
+				side="West";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=256;
+				type="B_Helipilot_F";
+				atlOffset=0.01099968;
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=2;
+			};
+			class Links
+			{
+				items=2;
+				class Item0
+				{
+					linkID=0;
+					item0=255;
+					item1=257;
+					class CustomData
+					{
+						role=1;
+					};
+				};
+				class Item1
+				{
+					linkID=1;
+					item0=256;
+					item1=257;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={0};
+					};
+				};
+			};
+		};
+		id=254;
+		atlOffset=0.01099968;
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-3.9042969,1.7795296,0.10644531};
+		};
+		side="West";
+		flags=6;
+		class Attributes
+		{
+		};
+		id=257;
+		type="B_Heli_Light_01_F";
+		atlOffset=0.01099968;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ammoBox";
+				expression="[_this,_value] call bis_fnc_initAmmoBox;";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+					};
+				};
+			};
+			nAttributes=1;
+		};
+	};
+	class Item5
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={-8.2490234,0,0.25390625};
+		};
+		id=258;
+		type="sss_transport_moduleAddHelicopter";
+		atlOffset=0.029247284;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="sss_transport_RespawnDelay";
+				expression="_this setVariable ['RespawnDelay',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=60;
+					};
+				};
+			};
+			class Attribute1
+			{
+				property="sss_transport_RelocationDelay";
+				expression="_this setVariable ['RelocationDelay',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=60;
+					};
+				};
+			};
+			class Attribute2
+			{
+				property="sss_transport_Callsign";
+				expression="_this setVariable ['Callsign',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="Kilo Echo 2";
+					};
+				};
+			};
+			class Attribute3
+			{
+				property="sss_transport_AccessCondition";
+				expression="_this setVariable ['AccessCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute4
+			{
+				property="sss_transport_VehicleInit";
+				expression="_this setVariable ['VehicleInit',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute5
+			{
+				property="sss_transport_RequestCondition";
+				expression="_this setVariable ['RequestCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute6
+			{
+				property="sss_transport_RemoteAccess";
+				expression="_this setVariable ['RemoteAccess',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="BOOL";
+						value=1;
+					};
+				};
+			};
+			class Attribute7
+			{
+				property="sss_transport_Side";
+				expression="_this setVariable ['Side',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute8
+			{
+				property="sss_transport_TaskTypes";
+				expression="_this setVariable ['TaskTypes',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="ARRAY";
+						class value
+						{
+							items=15;
+							class Item0
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item1
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item2
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item3
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item4
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item5
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item6
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item7
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item8
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item9
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item10
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item11
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item12
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item13
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+							class Item14
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+					};
+				};
+			};
+			class Attribute9
+			{
+				property="sss_transport_RemoteControl";
+				expression="_this setVariable ['RemoteControl',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=1;
+					};
+				};
+			};
+			class Attribute10
+			{
+				property="sss_transport_AccessItemsLogic";
+				expression="_this setVariable ['AccessItemsLogic',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute11
+			{
+				property="sss_auth";
+				expression="_this setVariable ['sss_auth',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute12
+			{
+				property="sss_transport_AccessItems";
+				expression="_this setVariable ['AccessItems',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="ACRE_PRC152";
+					};
+				};
+			};
+			class Attribute13
+			{
+				property="sss_transport_AltitudeLimits";
+				expression="_this setVariable ['AltitudeLimits',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="ARRAY";
+						class value
+						{
+							items=2;
+							class Item0
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0;
+								};
+							};
+							class Item1
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=3000;
+								};
+							};
+						};
+					};
+				};
+			};
+			class Attribute14
+			{
+				property="sss_transport_MaxTasks";
+				expression="_this setVariable ['MaxTasks',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=-1;
+					};
+				};
+			};
+			class Attribute15
+			{
+				property="sss_transport_MaxTimeout";
+				expression="_this setVariable ['MaxTimeout',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=300;
+					};
+				};
+			};
+			class Attribute16
+			{
+				property="sss_transport_Relocation";
+				expression="_this setVariable ['Relocation',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			nAttributes=17;
+		};
+	};
 };
 class connections
 {
@@ -950,8 +994,8 @@ class connections
 		class Item0
 		{
 			linkID=0;
-			item0=15;
-			item1=14;
+			item0=263;
+			item1=262;
 			class CustomData
 			{
 				type="Sync";
@@ -960,8 +1004,8 @@ class connections
 		class Item1
 		{
 			linkID=1;
-			item0=20;
-			item1=19;
+			item0=258;
+			item1=257;
 			class CustomData
 			{
 				type="Sync";
@@ -981,8 +1025,8 @@ class VehicleInVehicleLinks
 		class Item0
 		{
 			linkID=0;
-			item0=17;
-			item1=19;
+			item0=260;
+			item1=262;
 			class CustomData
 			{
 				role=1;
@@ -991,8 +1035,8 @@ class VehicleInVehicleLinks
 		class Item1
 		{
 			linkID=1;
-			item0=18;
-			item1=19;
+			item0=261;
+			item1=262;
 			class CustomData
 			{
 				role=2;
@@ -1002,8 +1046,8 @@ class VehicleInVehicleLinks
 		class Item2
 		{
 			linkID=2;
-			item0=12;
-			item1=14;
+			item0=255;
+			item1=257;
 			class CustomData
 			{
 				role=1;
@@ -1012,8 +1056,8 @@ class VehicleInVehicleLinks
 		class Item3
 		{
 			linkID=3;
-			item0=13;
-			item1=14;
+			item0=256;
+			item1=257;
 			class CustomData
 			{
 				role=2;
