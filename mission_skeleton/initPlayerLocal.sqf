@@ -7,19 +7,17 @@
 
 
 params ["_player"];
-/*
- * COMMON SECTION - Settings for all missions
- *
- */
+/*********************************************************
+ * MISSION SPECIFIC - Put scripts for current mission only
+ *********************************************************/
 
+
+
+/********************************************
+ * COMMON SECTION - Settings for all missions
+ ********************************************/
 // Create ACE menu
 _player call FUNC(createUnitAceMenu);
 
 // Add briefing to the mission map screen
 [] execVM "scripts\briefing.sqf";
-
-
-/*
- * MISSION SPECIFIC - Put scripts for current mission only
- *
- */

@@ -121,4 +121,4 @@ tawvd_disablenone = true;
             ""
         ]
     }
-} forEach allVariables missionNamespace
+} forEach allVariables missionNamespace;
