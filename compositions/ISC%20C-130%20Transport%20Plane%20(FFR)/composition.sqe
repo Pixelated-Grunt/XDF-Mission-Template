@@ -317,7 +317,7 @@ class items
 					class data
 					{
 						singleType="STRING";
-						value="ACRE_PRC152";
+						value="ACRE_PRC117F";
 					};
 				};
 			};

@@ -12,7 +12,7 @@
 
 // List of XDF access items
 XDF_MF_accessItems = createHashMapFromArray [
-    ["SETERV", "ACRE_PRC152"],
+    ["SETERV", "ACRE_PRC117F"],
     ["CLRVEG", "ACE_EntrenchingTool"]
 ];
 
