@@ -64,13 +64,8 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
             params ["_aircraft", "_caller", "_actionId", "_veh"];
 
             _aircraft removeAction _actionId;
-
-            // The tail of the C-130 static is where it's pointing
-            private _dropPos = _aircraft getRelPos [50, getDir _aircraft];
-
-            _dropPos set [2, (getPosASL _aircraft) # 2];
             [[_veh], XDF_MF_fnc_addArsenalToCargo] remoteExec ["call", 2];
-            [[_veh, _dropPos], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
+            [[_veh], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
 
             // Let the jump master remove the C-130
             if (missionNamespace getVariable["XDF_MF_jumpMaster", objNull] isEqualTo _caller) then {
