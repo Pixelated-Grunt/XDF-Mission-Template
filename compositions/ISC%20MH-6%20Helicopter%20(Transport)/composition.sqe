@@ -414,7 +414,7 @@ class items
 					class data
 					{
 						singleType="STRING";
-						value="ACRE_PRC117F";
+						value="ACE_Cellphone";
 					};
 				};
 			};
