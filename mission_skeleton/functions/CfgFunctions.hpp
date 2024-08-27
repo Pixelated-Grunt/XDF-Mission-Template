@@ -4,11 +4,11 @@ class XDF_MF {
     class common {
         file = "functions";
         class addArsenalToCargo {};
+        class boardC130S {};
         class clearVegetation {};
         class createUnitAceMenu {};
         class fillArsenal {};
         class getUnitAllowedActions {};
-        class moveToC130S {};
         class paradropVehicle {};
         class setERV {};
     };

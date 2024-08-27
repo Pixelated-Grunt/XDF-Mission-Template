@@ -1,3 +1,4 @@
+#include "functions\script_component.hpp"
 /*
  * Author: Pixelated_Grunt
  * Description: Common init file
@@ -120,5 +121,8 @@ tawvd_disablenone = true;
             true,
             ""
         ]
-    }
-} forEach allVariables missionNamespace;
+    };
+
+    // C-130 static teleport points
+    if ("xdf_board_c130s" in _x) then { [missionNamespace getVariable _x] call FUNC(boardC130S) }
+} forEach allVariables missionNamespace
