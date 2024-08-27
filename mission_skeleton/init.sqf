@@ -16,6 +16,7 @@
  **********************************************/
 // Setup default radio nets
 ["ACRE_PRC152", "default", "isc"] call acre_api_fnc_copyPreset;
+["ACRE_PRC117F", "default", "isc"] call acre_api_fnc_copyPreset;
 
 ["ACRE_PRC152", "isc", 1, "label", "SQDNET 1"] call acre_api_fnc_setPresetChannelField;
 ["ACRE_PRC152", "isc", 1, "frequencyRX", 42.1] call acre_api_fnc_setPresetChannelField;
@@ -33,11 +34,28 @@
 ["ACRE_PRC152", "isc", 5, "frequencyRX", 44.1] call acre_api_fnc_setPresetChannelField;
 ["ACRE_PRC152", "isc", 5, "frequencyTX", 44.1] call acre_api_fnc_setPresetChannelField;
 
+["ACRE_PRC117F", "isc", 1, "label", "SQDNET 1"] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 1, "frequencyRX", 42.1] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 1, "frequencyTX", 42.1] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 2, "label", "SQDNET 2"] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 2, "frequencyRX", 42.2] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 2, "frequencyTX", 42.2] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 3, "label", "SQDNET 3"] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 3, "frequencyRX", 42.3] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 3, "frequencyTX", 42.3] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 4, "label", "PLTNET"] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 4, "frequencyRX", 43.1] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 4, "frequencyTX", 43.1] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 5, "label", "SUPPORT"] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 5, "frequencyRX", 44.1] call acre_api_fnc_setPresetChannelField;
+["ACRE_PRC117F", "isc", 5, "frequencyTX", 44.1] call acre_api_fnc_setPresetChannelField;
+
 ["ACRE_PRC152", "isc"] call acre_api_fnc_setPreset;
+["ACRE_PRC117F", "isc"] call acre_api_fnc_setPreset;
 
 // List of XDF access items
 XDF_MF_accessItems = createHashMapFromArray [
-    ["SETERV", "ACE_Cellphone"],
+    ["SETERV", "ACRE_PRC117F"],
     ["CLRVEG", "ACE_EntrenchingTool"]
 ];
 
