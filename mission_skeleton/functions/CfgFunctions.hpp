@@ -8,7 +8,6 @@ class XDF_MF {
         class createUnitAceMenu {};
         class fillArsenal {};
         class getUnitAllowedActions {};
-        class moveToC130S {};
         class paradropVehicle {};
         class setERV {};
     };
