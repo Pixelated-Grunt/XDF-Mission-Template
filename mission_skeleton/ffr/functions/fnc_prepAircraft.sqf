@@ -60,12 +60,12 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
     } forEach _vehsNearby;
 
     if !(isNull _veh) then {
+        _aircraft setVariable ["cargoVehicles", [_veh]];
         _aircraft addAction ["Drop Vehicle", {
-            params ["_aircraft", "_caller", "_actionId", "_veh"];
+            params ["_aircraft", "_caller", "", "_veh"];
 
-            _aircraft removeAction _actionId;
             [[_veh], XDF_MF_fnc_addArsenalToCargo] remoteExec ["call", 2];
-            [[_veh], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
+            [[_veh, _aircraft], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
 
             // Let the jump master remove the C-130
             if (missionNamespace getVariable["XDF_MF_jumpMaster", objNull] isEqualTo _caller) then {
@@ -91,7 +91,7 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
                     }
                 ] call CBA_fnc_waitUntilAndExecute
             }
-        }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this}}"]
+        }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this} && {(_target distance (_target getVariable ['cargoVehicles', []])#0) < 10}}"]
     }
 } else {
     // For easy testing on self host server to run on everyone

@@ -20,13 +20,15 @@ if !isServer exitWith {};
 params ["_item"];
 
 private _c130sHashMap = createHashMap;
-private _c130sPos = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+private _c130sSpots = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
 // Get all static c130 info
 {
     if ("xdf_c130s_" in _x) then {
         private _obj = missionNamespace getVariable _x;
-        _obj setVariable ["spotsLeft", _c130sPos];
+        private _vehsNearby = nearestObjects [_obj, ["Car", "Ship"], 10];
+        _obj setVariable ["spotsLeft", _c130sSpots];
+        _obj setVariable ["cargos", _vehsNearby];
         _c130sHashMap set [_x, [getPosASL _obj, _obj getVariable ["troopsPosASL", []]]]
     }
 } forEach allVariables missionNamespace;
@@ -35,29 +37,30 @@ if (count _c130sHashMap == 0) exitWith {WARNING("No C-130 static found in missio
 {
     private _obj = missionNamespace getVariable _x;
 
-    _item addAction [format["Reset %1 seats", _x], {
-        params ["", "", "", "_args"];
-        _args params ["_c130sObj", "_c130sPos"];
-
-        _c130sObj setVariable ["spotsLeft", _c130sPos]
-    },
-    [_obj, _c130sPos],
-    2,
-    false,
-    false,
-    "",
-    "(_obj getVariable ['spotsLeft', []]) isEqualTypeArray []"];
-
-    _item addAction [format["Board %1", _x], {
+    _item addAction [format["Board C-130J #%1", _forEachIndex+1], {
         params ["", "_caller", "", "_args"];
         _args params ["_c130sData", "_c130sObj"];
-        private ["_spotsLeft", "_idx"];
+        private ["_idx", "_spotsLeft"];
 
-        if (isObjectHidden _c130sObj) then {_c130sObj hideObjectGlobal false};
+        // show C-130 static and vehicle inside if found
+        if (isObjectHidden _c130sObj) then {
+            private _cargos = _c130sObj getVariable ["cargos", []];
+
+            _c130sObj hideObjectGlobal false;
+            if (count _cargos > 0) then {
+                private _cargo = _cargos#0;
+
+                if (_cargo isKindOf "LSV_01_base_F" || _cargo isKindOf "Rubber_duck_base_F") then {
+                    if isObjectHidden _cargo then {_cargo hideObjectGlobal false}
+                }
+            }
+        };
+
         _spotsLeft = _c130sObj getVariable ["spotsLeft", []];
         _idx = _spotsLeft select 0;
 
-        _caller setPosASL [_c130sData#0 vectorAdd _c130sData#1#_idx];
+        //LOG_2("C-130 pos: %1 new pos: %2", (_c130sData#0), (_c130sData#0 vectorAdd _c130sData#1#_idx));
+        _caller setPosASL ((_c130sData#0) vectorAdd (_c130sData#1#_idx));
         if ((_caller distance _c130sObj) < 10) then {
             _spotsLeft deleteAt 0;
             _c130sObj setVariable ["spotsLeft", _spotsLeft]
@@ -66,7 +69,5 @@ if (count _c130sHashMap == 0) exitWith {WARNING("No C-130 static found in missio
     [_y, _obj],
     1.5,
     false,
-    true,
-    "",
-    "count (_obj getVariable ['spotsLeft', []) > 0"]
+    true]
 } forEach _c130sHashMap

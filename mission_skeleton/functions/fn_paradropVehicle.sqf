@@ -6,8 +6,9 @@
  *
  * Arguments:
  * 0: Target vehicle to be dropped <OBJECT>
- * 1: Optional: Distance away from the plane before chute deploys <ARRAY> (default: 50)
- * 2: Optional: Vehicle will be released backward <BOOL> (default: true)
+ * 1: Carrier object <OBJECT>
+ * 2: Optional: Distance away from the plane before chute deploys <ARRAY> (default: 50)
+ * 3: Optional: Vehicle will be released backward <BOOL> (default: true)
  *
  * Return Value:
  * Nil
@@ -22,10 +23,12 @@
 if (!isServer) exitWith {};
 params [
     ["_vehicle", objNull, [objNull]],
+    ["_aircraft", objNull, [objNull]],
     ["_dist", 50, [0]],
     ["_dir", true, [true]]
 ];
 
+if ((_vehicle distance _aircraft) > 10) exitWith {WARNING_2("%1 is too far from %2 for paradrop.", _vehicle, _aircraft)};
 private ["_class", "_para", "_paras", "_p"];
 
 _vehicle allowDamage false;
