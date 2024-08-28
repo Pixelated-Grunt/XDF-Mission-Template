@@ -37,7 +37,7 @@ if hasInterface then {
     {
         private _obj = missionNamespace getVariable _x;
 
-        _item addAction [format["Board C-130J #%1", _forEachIndex+1], {
+        _item addAction [format["Board C-130J for DZ #%1", _forEachIndex+1], {
             params ["", "_caller", "", "_args"];
             _args params ["_c130sData", "_c130sObj"];
             private ["_idx", "_spotsLeft"];
