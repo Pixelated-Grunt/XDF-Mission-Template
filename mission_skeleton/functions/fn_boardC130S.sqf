@@ -56,7 +56,8 @@ if hasInterface then {
                 }
             };
 
-            _spotsLeft = _c130sObj getVariable ["spotsLeft", []];
+            //NOTE: for now no code to handle if 16 slots are filled so default to the 1st pos for now
+            _spotsLeft = _c130sObj getVariable ["spotsLeft", [0]];
             _idx = _spotsLeft select 0;
 
             //LOG_2("C-130 pos: %1 new pos: %2", (_c130sData#0), (_c130sData#0 vectorAdd _c130sData#1#_idx));
