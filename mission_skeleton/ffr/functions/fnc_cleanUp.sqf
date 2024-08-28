@@ -15,6 +15,24 @@ Move unit out of aicraft seat to standing in ViV space
 
 params ["_aircraft"];
 
+// Close ramp
+private _jumpInfo = _aircraft getVariable "ffr_jumpInfo";
+_jumpInfo params ["_animInfo"];
+_animInfo params ["_animType", "_anims"];
+{
+    switch (_animType) do {
+        case (""): {
+            _aircraft animate [_x, 0];
+        };
+        case ("source"): {
+            _aircraft animateSource [_x, 0];
+        };
+        case ("door"): {
+            _aircraft animateDoor [_x, 0];
+        };
+    };
+} forEach _anims;
+
 {
     deleteVehicle (_aircraft getVariable [_x, objNull]);
     _aircraft setVariable [_x, nil];
