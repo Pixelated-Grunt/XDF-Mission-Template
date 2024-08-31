@@ -76,7 +76,7 @@ force ace_repair_enabled = true;
 force ace_repair_engineerSetting_fullRepair = 2;
 force ace_repair_engineerSetting_repair = 1;
 force ace_repair_engineerSetting_wheel = 0;
-force ace_repair_fullRepairLocation = 3;
+force ace_repair_fullRepairLocation = 4;
 force ace_repair_fullRepairRequiredItems = ["ace_repair_anyToolKit"];
 force ace_repair_locationsBoostTraining = true;
 force ace_repair_miscRepairRequiredItems = ["ace_repair_anyToolKit"];
@@ -88,7 +88,7 @@ force ace_repair_patchWheelRequiredItems = ["ace_repair_anyToolKit"];
 force ace_repair_patchWheelTime = 10;
 force ace_repair_repairDamageThreshold = 0.6;
 force ace_repair_repairDamageThreshold_engineer = 0.8;
-force ace_repair_timeCoefficientFullRepair = 1;
+force ace_repair_timeCoefficientFullRepair = 0.75;
 force ace_repair_wheelChangeTime = 20;
 force ace_repair_wheelRepairRequiredItems = [];
 
