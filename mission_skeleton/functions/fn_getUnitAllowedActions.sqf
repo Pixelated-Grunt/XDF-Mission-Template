@@ -27,10 +27,10 @@ _actions = [];
 
 {
     private _action = _x;
-    private _item = _y;
+    private _item = toLower(_y);
 
     {
-        if (_item in _x) then {
+        if (_item in toLower(_x)) then {
             _actions pushBack _action
         }
     } forEach _unitUniqueItemsHash

@@ -57,7 +57,8 @@
 // List of XDF access items
 XDF_MF_accessItems = createHashMapFromArray [
     ["SETERV", "ACE_Cellphone"],
-    ["CLRVEG", "ACE_EntrenchingTool"]
+    ["CLRVEG", "ACE_EntrenchingTool"],
+    ["NILOC", "ACE_SpraypaintRed"]
 ];
 
 // View Distance Settings

@@ -28,18 +28,15 @@ params ["_player"];
     {
         private _actions = count ([_this # 1] call FUNC(getUnitAllowedActions));
         private _res = [false, true] select ( _actions > 0 );
-
         _player setVariable [QGVARMAIN(aceMenuExist), _res];
         _res
     },
     {
-        params ["", "_player"];
-
-        private _unitAllowedActions = _player getVariable ["UnitAllowedActions", []];
+        params ["_target"];
+        private _unitAllowedActions = _target getVariable ["UnitAllowedActions", []];
         private _actions = [];
-
         {
-            switch _x do {
+            switch toUpper(_x) do {
                 private "_action";
 
                 case "SETERV": {
@@ -50,7 +47,7 @@ params ["_player"];
                         { [_this # 1] call FUNC(setERV) },
                         { true }
                     ] call ace_interact_menu_fnc_createAction;
-                    _actions pushBack [_action, [], "_player"]
+                    _actions pushBack [_action, [], "_target"]
                 };
                 case "CLRVEG": {
                     _action = [
@@ -60,11 +57,16 @@ params ["_player"];
                         { [_this # 1] call FUNC(clearVegetation) },
                         { true }
                     ] call ace_interact_menu_fnc_createAction;
-                    _actions pushBack [_action, [], "_player"]
+                    _actions pushBack [_action, [], "_target"]
+                };
+                case "NILOC": {
+                    if (HASNILOC) then {
+                        _action = [_player] call NILOC_fnc_addACEMenu;
+                        _actions pushBack [_action, [], "_target"]
+                    }
                 }
             }
         } forEach _unitAllowedActions;
-
         _actions
     }
 ] call ace_interact_menu_fnc_createAction] call ace_interact_menu_fnc_addActionToObject
