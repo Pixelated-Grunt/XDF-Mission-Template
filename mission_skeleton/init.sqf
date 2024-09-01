@@ -1,3 +1,4 @@
+#include "functions\script_component.hpp"
 /*
  * Author: Pixelated_Grunt
  * Description: Common init file
@@ -5,11 +6,14 @@
  */
 
 
-/*
- * COMMON SECTION - Settings for every missions
- *
- */
+/*********************************************************
+ * MISSION SPECIFIC - Put scripts for current mission only
+ *********************************************************/
 
+
+/*********************************************************
+ * COMMON SECTION - Settings for every missions
+ *********************************************************/
 #define MAINRADIO "ACRE_PRC77"
 #define RADIOFREQ 41
 
@@ -112,10 +116,4 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
             ""
         ]
     }
-} forEach allVariables missionNamespace;
-
-
-/*
- * MISSION SPECIFIC - Put scripts for current mission only
- *
- */
+} forEach allVariables missionNamespace

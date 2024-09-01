@@ -21,6 +21,6 @@ _this addAction ["<t color='#999999'>Sit Down</t>", {
     [{
         params ["_unit", "_aircraft"];
         _unit moveInCargo _aircraft;
-        vehicle _unit == _aircraft
+        objectParent _unit == _aircraft
     }, {}, [_unit, _aircraft], 5] call CBA_fnc_waitUntilAndExecute;
 }, nil, 0, true, true, "", "!isNull (_target getVariable ['ffr_aircraft', objNull])"];
