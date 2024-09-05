@@ -32,3 +32,6 @@ private _eodLO = [[],[],[],["tacs_Uniform_Combat_RS_TS_TP_TB",[["greenmag_item_s
 ["Base", _rifleLO, true] call ace_arsenal_fnc_addDefaultLoadout;
 ["EOD", _eodLO, true] call ace_arsenal_fnc_addDefaultLoadout;
 ["RTO", _rtoLO, true] call ace_arsenal_fnc_addDefaultLoadout;
+
+// Simplex resupply items
+sss_logistics_medicalDefaults = ["kat_MFAK", "kat_AFAK", "ACE_plasmaIV", "ACE_plasmaIV_500", "ACE_plasmaIV_250"];

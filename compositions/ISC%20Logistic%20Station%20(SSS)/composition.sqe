@@ -1,0 +1,277 @@
+version=54;
+center[]={7970.0742,30.43,9682.7871};
+class items
+{
+	items=6;
+	class Item0
+	{
+		dataType="Marker";
+		position[]={0.80761719,0,4.5136719};
+		name="mk_resupply_a_1";
+		text="RESUPPLY (AIR)";
+		type="b_support";
+		id=385;
+		atlOffset=-0.00031852722;
+	};
+	class Item1
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={0.88183594,0.00040245056,4.4619141};
+		};
+		name="xdf_logi_1";
+		id=386;
+		type="sss_logistics_moduleAddStation";
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="sss_auth";
+				expression="_this setVariable ['sss_auth',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute1
+			{
+				property="sss_logistics_Callsign";
+				expression="_this setVariable ['Callsign',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="NALO 1-1";
+					};
+				};
+			};
+			class Attribute2
+			{
+				property="sss_logistics_AccessCondition";
+				expression="_this setVariable ['AccessCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute3
+			{
+				property="sss_logistics_RemoteAccess";
+				expression="_this setVariable ['RemoteAccess',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="BOOL";
+						value=1;
+					};
+				};
+			};
+			class Attribute4
+			{
+				property="sss_logistics_ClearingRadius";
+				expression="_this setVariable ['ClearingRadius',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute5
+			{
+				property="sss_logistics_ItemInit";
+				expression="_this setVariable ['ItemInit',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute6
+			{
+				property="sss_logistics_Side";
+				expression="_this setVariable ['Side',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute7
+			{
+				property="sss_logistics_Cooldown";
+				expression="_this setVariable ['Cooldown',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=60;
+					};
+				};
+			};
+			class Attribute8
+			{
+				property="sss_logistics_RequestCondition";
+				expression="_this setVariable ['RequestCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute9
+			{
+				property="sss_logistics_AccessItemsLogic";
+				expression="_this setVariable ['AccessItemsLogic',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute10
+			{
+				property="sss_logistics_AccessItems";
+				expression="_this setVariable ['AccessItems',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="ACE_Cellphone";
+					};
+				};
+			};
+			class Attribute11
+			{
+				property="sss_logistics_ListFunction";
+				expression="_this setVariable ['ListFunction',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="[ " \n "    [""#Supplies"", [ " \n "        [""Box_T_East_Ammo_F"", [""Resupply - Ammo"", ""@resupply""], { " \n "                [_this, ""#group"", false, true, 20, 10, 10, 10, 10, 0] call sss_logistics_fnc_autoFill " \n "            } " \n "        ], " \n "        [""ACE_medicalSupplyCrate_advanced"", [""Resupply - Medical"", ""@resupply""], { " \n "                [_this, ""#group"", false, true, 0, 0, 0, 0, 0, 20] call sss_logistics_fnc_autoFill " \n "            } " \n "        ], " \n "        [""O_supplyCrate_F"", [""Resupply - Ammo + Medical"", ""@resupply""], { " \n "                [_this, ""#group"", true, true, 20, 10, 10, 10, 10, 20] call sss_logistics_fnc_autoFill " \n "            } " \n "        ], " \n "        [""Box_T_East_WpsSpecial_F"", ""Ration"", { " \n "   private _count = count(allPlayers - entities ""HeadlessClient_F""); " \n "            clearItemCargoGlobal _this; " \n "            clearMagazineCargoGlobal _this; " \n "            clearWeaponCargoGlobal _this; " \n "            clearBackpackCargoGlobal _this; " \n "   _this addWeaponCargoGlobal [""ACE_Canteen"", _count*2]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_ChickenTikkaMasala"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_ChickenHerbDumplings"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_CreamChickenSoup"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_CreamTomatoSoup"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_LambCurry"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_MeatballsPasta"", _count]; " \n "   _this addWeaponCargoGlobal [""ACE_MRE_SteakVegetables"", _count] " \n "        }] " \n "    ]] " \n "]";
+					};
+				};
+			};
+			nAttributes=12;
+		};
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.83398438,0.00038337708,4.4736328};
+			angles[]={0.0015358897,0,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			name="xdf_logi_pad_1";
+		};
+		id=387;
+		type="Land_JumpTarget_F";
+	};
+	class Item3
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={5.3305664,0.014436722,-4.3105469};
+		};
+		id=406;
+		type="sss_common_moduleTerminal";
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-3.925293,0.98266411,-4.6123047};
+			angles[]={0.001544081,0,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=408;
+		type="Land_Laptop_03_black_F";
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-3.9296875,0.41489029,-4.5292969};
+			angles[]={0.001544081,0,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=409;
+		type="FoldTable";
+	};
+};
+class connections
+{
+	class LinkIDProvider
+	{
+		nextID=2;
+	};
+	class Links
+	{
+		items=2;
+		class Item0
+		{
+			linkID=0;
+			item0=406;
+			item1=408;
+			class CustomData
+			{
+				type="Sync";
+			};
+		};
+		class Item1
+		{
+			linkID=1;
+			item0=386;
+			item1=406;
+			class CustomData
+			{
+				type="Sync";
+			};
+		};
+	};
+};
