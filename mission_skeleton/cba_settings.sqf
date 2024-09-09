@@ -1,3 +1,53 @@
+// ACE Advanced Ballistics
+force ace_advanced_ballistics_ammoTemperatureEnabled = false;
+
+// ACE Advanced Fatigue
+force ace_advanced_fatigue_fadeStaminaBar = true;
+force ace_advanced_fatigue_performanceFactor = 2.5;
+force ace_advanced_fatigue_recoveryFactor = 5;
+force ace_advanced_fatigue_terrainGradientFactor = 0.5;
+
+// ACE Artillery
+force ace_artillerytables_disableArtilleryComputer = true;
+
+// ACE Cook off
+force ace_cookoff_destroyVehicleAfterCookoff = true;
+
+// ACE Crew Served Weapons
+ace_csw_dragAfterDeploy = true;
+
+// ACE Dragging
+force ace_dragging_dragAndFire = true;
+
+// ACE Explosives
+force ace_explosives_explodeOnDefuse = false;
+force ace_explosives_punishNonSpecialists = false;
+
+// ACE Field Rations
+force acex_field_rations_enabled = true;
+force acex_field_rations_hudShowLevel = 0;
+force acex_field_rations_hudTransparency = -1;
+force acex_field_rations_hudType = 0;
+force acex_field_rations_hungerSatiated = 5;
+force acex_field_rations_thirstQuenched = 5;
+force acex_field_rations_timeWithoutFood = 5;
+force acex_field_rations_timeWithoutWater = 5;
+
+// ACE Headless
+force acex_headless_enabled = true;
+force acex_headless_transferLoadout = 1;
+
+// ACE Hearing
+force ace_hearing_disableEarRinging = false;
+force ace_hearing_enableCombatDeafness = false;
+force ace_hearing_unconsciousnessVolume = 0.6;
+
+// ACE Interaction Menu
+ace_interact_menu_useListMenuSelf = true;
+
+// ACE Map
+force ace_map_DefaultChannel = 0;
+
 // ACE Medical
 force ace_medical_ai_enabledFor = 2;
 force ace_medical_ai_requireItems = 2;
@@ -91,6 +141,77 @@ force ace_repair_repairDamageThreshold_engineer = 0.8;
 force ace_repair_timeCoefficientFullRepair = 0.75;
 force ace_repair_wheelChangeTime = 20;
 force ace_repair_wheelRepairRequiredItems = [];
+
+// ACE Medical Interface
+force ace_medical_feedback_bloodVolumeEffectType = 0;
+force ace_medical_feedback_painEffectType = 0;
+force ace_medical_gui_enableActions = 0;
+force ace_medical_gui_enableMedicalMenu = 1;
+force ace_medical_gui_enableSelfActions = true;
+force ace_medical_gui_interactionMenuShowTriage = 1;
+force ace_medical_gui_openAfterTreatment = true;
+
+// ACE Name Tags
+force ace_nametags_ambientBrightnessAffectViewDist = 0.5;
+force ace_nametags_playerNamesMaxAlpha = 0.5;
+force ace_nametags_showPlayerRanks = false;
+ace_nametags_showVehicleCrewInfo = false;
+
+// ACE Nightvision
+force ace_nightvision_fogScaling = 0;
+force ace_nightvision_noiseScaling = 0;
+
+// ACE Overheating
+force ace_overheating_cookoffCoef = 0;
+ace_overheating_displayTextOnJam = false;
+force force ace_overheating_enabled = true;
+force ace_overheating_heatCoef = 0.8;
+force ace_overheating_jamChanceCoef = 1.3;
+force ace_overheating_unJamOnreload = true;
+
+// ACE Pointing
+force ace_finger_enabled = true;
+force ace_finger_indicatorForSelf = true;
+force ace_finger_maxRange = 10;
+
+// ACE Respawn
+force ace_respawn_savePreDeathGear = true;
+
+// ACE Scopes
+force ace_scopes_defaultZeroRange = 200;
+force ace_scopes_enabled = false;
+
+// ACE Weather
+force ace_weather_windSimulation = false;
+
+// ACRE2
+force acre_sys_core_ts3ChannelName = "Operations";
+
+// ACRE2 Animations
+force radioAnims_cba_ads = true;
+force radioAnims_cba_Earpieces = "[""G_WirelessEarpiece_F""]";
+force radioAnims_cba_main = true;
+force radioAnims_cba_preference_Others = "Hand";
+force radioAnims_cba_preference_PRC148 = "Hand";
+force radioAnims_cba_preference_PRC152 = "Vest";
+force radioAnims_cba_preference_PRC343 = "Vest";
+force radioAnims_cba_preference_SEM52SL = "Vest";
+force radioAnims_cba_vehicles = true;
+force radioAnims_cba_vestarmor = true;
+force radioAnims_cba_vests = "[]";
+
+// Adjustable Walking Speed - Rework
+force awsr_core_Enable = true;
+awsr_core_Enable_Tactical = false;
+force awsr_core_Enable_Walk = true;
+force awsr_core_minAdjustSpeed_Walk = 0.1;
+force awsr_core_speedAdjustCoefficient_Custom = 0.1;
+force awsr_core_speedAdjustCoefficient_Tactical = 0.1;
+force awsr_core_speedAdjustCoefficient_Walk = 0.1;
+
+// GRAD Pace Count Beads
+force grad_paceCountBeads_functions_constantlyShow = false;
+force grad_paceCountBeads_functions_showOnChange = false;
 
 // KAT - ADV Medical: Airway
 force kat_airway_Accuvac_time = 6;
