@@ -209,9 +209,26 @@ force awsr_core_speedAdjustCoefficient_Custom = 0.1;
 force awsr_core_speedAdjustCoefficient_Tactical = 0.1;
 force awsr_core_speedAdjustCoefficient_Walk = 0.1;
 
+// CUP
+force CUP_Vehicles_PreventBarrelClip = true;
+
+// CUP Static Weapons
+force CUP_staticWeapons_allowMovement = true;
+force CUP_staticWeapons_allowRotation = true;
+
+// Death && Hit Reactions
+force WBK_DeathAnimMod_Hit_Chance = "20";
+force WBK_DeathAnimMod_Hit_Chance_PLR = "30";
+
+// Enhanced Movement Rework
+force emr_main_enableWalkableSurface = true;
+
 // GRAD Pace Count Beads
 force grad_paceCountBeads_functions_constantlyShow = false;
 force grad_paceCountBeads_functions_showOnChange = false;
+
+// Immersive Animations
+force force WBK_IA_RAD = false;
 
 // KAT - ADV Medical: Airway
 force kat_airway_Accuvac_time = 6;
