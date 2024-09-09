@@ -1,0 +1,14 @@
+version=54;
+name="XDF Logistic Station (SSS)";
+author="Pixelated_Grunt";
+category="EdSubcat_Services";
+requiredAddons[]=
+{
+	"objects_f_vietnam_c",
+	"A3_Structures_F_Civ_Camping",
+	"ace_dragging",
+	"sss_common",
+	"A3_Ui_F",
+	"sss_logistics",
+	"A3_Structures_F_Mil_Helipads"
+};

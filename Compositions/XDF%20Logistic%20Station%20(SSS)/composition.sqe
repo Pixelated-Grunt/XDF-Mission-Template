@@ -1,0 +1,276 @@
+version=54;
+center[]={4994.3076,4.9996815,5555.4053};
+class items
+{
+	items=6;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.5146484,0.81292486,-3.4907227};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			name="xdf_ncs_logi_1";
+		};
+		id=263;
+		type="vn_b_prop_vrc12";
+		atlOffset=0.0013127327;
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.4975586,0.40551996,-3.4038086};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=264;
+		type="Land_CampingTable_small_F";
+	};
+	class Item2
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={2.934082,0.00031852722,-4.4912109};
+		};
+		id=262;
+		type="sss_common_moduleTerminal";
+	};
+	class Item3
+	{
+		dataType="Marker";
+		position[]={0.64794922,0,3.8291016};
+		name="mk_resupply_a_1";
+		text="RESUPPLY (AIR)";
+		type="b_support";
+		id=259;
+		atlOffset=-0.00031852722;
+	};
+	class Item4
+	{
+		dataType="Logic";
+		class PositionInfo
+		{
+			position[]={0.72216797,0.00031852722,3.777832};
+		};
+		name="xdf_logi_1";
+		id=260;
+		type="sss_logistics_moduleAddStation";
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="sss_auth";
+				expression="_this setVariable ['sss_auth',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute1
+			{
+				property="sss_logistics_Callsign";
+				expression="_this setVariable ['Callsign',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="Logi Station 1";
+					};
+				};
+			};
+			class Attribute2
+			{
+				property="sss_logistics_AccessCondition";
+				expression="_this setVariable ['AccessCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute3
+			{
+				property="sss_logistics_RemoteAccess";
+				expression="_this setVariable ['RemoteAccess',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="BOOL";
+						value=1;
+					};
+				};
+			};
+			class Attribute4
+			{
+				property="sss_logistics_ClearingRadius";
+				expression="_this setVariable ['ClearingRadius',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute5
+			{
+				property="sss_logistics_ItemInit";
+				expression="_this setVariable ['ItemInit',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="";
+					};
+				};
+			};
+			class Attribute6
+			{
+				property="sss_logistics_Side";
+				expression="_this setVariable ['Side',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute7
+			{
+				property="sss_logistics_Cooldown";
+				expression="_this setVariable ['Cooldown',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=60;
+					};
+				};
+			};
+			class Attribute8
+			{
+				property="sss_logistics_RequestCondition";
+				expression="_this setVariable ['RequestCondition',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="true";
+					};
+				};
+			};
+			class Attribute9
+			{
+				property="sss_logistics_AccessItemsLogic";
+				expression="_this setVariable ['AccessItemsLogic',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="SCALAR";
+						value=0;
+					};
+				};
+			};
+			class Attribute10
+			{
+				property="sss_logistics_AccessItems";
+				expression="_this setVariable ['AccessItems',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="ACRE_PRC77";
+					};
+				};
+			};
+			class Attribute11
+			{
+				property="sss_logistics_ListFunction";
+				expression="_this setVariable ['ListFunction',_value,true];";
+				class Value
+				{
+					class data
+					{
+						singleType="STRING";
+						value="[  " \n "    [""#Supplies"", [  " \n "        [""vn_b_ammobox_full_08"", [""Resupply - Ammo"", ""@resupply""], {  " \n "                [_this, ""#group"", false, true, 20, 10, 10, 10, 10, 0] call sss_logistics_fnc_autoFill  " \n "            }  " \n "        ],  " \n "        [""ACE_medicalSupplyCrate_advanced"", [""Resupply - Medical"", ""@resupply""], {  " \n "                [_this, ""#group"", false, true, 0, 0, 0, 0, 0, 20] call sss_logistics_fnc_autoFill  " \n "            }  " \n "        ],  " \n "        [""O_supplyCrate_F"", [""Resupply - Ammo + Medical"", ""@resupply""], {  " \n "                [_this, ""#group"", true, true, 20, 10, 10, 10, 10, 20] call sss_logistics_fnc_autoFill  " \n "            }  " \n "        ],  " \n "        [""Box_T_East_WpsSpecial_F"", ""Ration"", {  " \n "   private _count = count(allPlayers - entities ""HeadlessClient_F"");  " \n "            clearItemCargoGlobal _this;  " \n "            clearMagazineCargoGlobal _this;  " \n "            clearWeaponCargoGlobal _this;  " \n "            clearBackpackCargoGlobal _this;  " \n "   _this addWeaponCargoGlobal [""ACE_Canteen"", _count*2];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_ChickenTikkaMasala"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_ChickenHerbDumplings"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_CreamChickenSoup"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_CreamTomatoSoup"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_LambCurry"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_MeatballsPasta"", _count];  " \n "   _this addWeaponCargoGlobal [""ACE_MRE_SteakVegetables"", _count]  " \n "        }]  " \n "    ]]  " \n "]";
+					};
+				};
+			};
+			nAttributes=12;
+		};
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.67431641,0.00031852722,3.7890625};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			name="xdf_logi_pad_1";
+		};
+		id=261;
+		type="Land_JumpTarget_F";
+	};
+};
+class connections
+{
+	class LinkIDProvider
+	{
+		nextID=2;
+	};
+	class Links
+	{
+		items=2;
+		class Item0
+		{
+			linkID=0;
+			item0=260;
+			item1=262;
+			class CustomData
+			{
+				type="Sync";
+			};
+		};
+		class Item1
+		{
+			linkID=1;
+			item0=262;
+			item1=263;
+			class CustomData
+			{
+				type="Sync";
+			};
+		};
+	};
+};
