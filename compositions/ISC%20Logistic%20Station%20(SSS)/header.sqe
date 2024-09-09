@@ -4,10 +4,11 @@ author="Pixelated_Grunt";
 category="EdSubcat_Services";
 requiredAddons[]=
 {
+	"sss_common",
+	"A3_Props_F_Enoch_Military_Equipment",
 	"A3_Ui_F",
 	"sss_logistics",
 	"A3_Structures_F_Mil_Helipads",
-	"sss_common",
-	"A3_Props_F_Enoch_Military_Equipment",
-	"CUP_Misc3_Config"
+	"A3_Structures_F_Civ_Camping",
+	"ace_dragging"
 };
