@@ -49,6 +49,8 @@ allowFunctionsLog = 1;
  * COMMON SECTION - Settings for all missions, shouldn't need to change
  *
  */
+ 
+cba_settings_hasSettingsFile = 1;
 
 //View distance function definition
 #include "taw_vd\GUI.h"
