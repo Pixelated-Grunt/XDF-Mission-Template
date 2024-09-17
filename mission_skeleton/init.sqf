@@ -46,7 +46,6 @@
 XDF_MF_accessItems = createHashMapFromArray [
     ["SETERV", "ACE_Cellphone"],
     ["CLRVEG", "ACE_EntrenchingTool"],
-    ["EARPLUGS", "ACE_EarPlugs"],
     ["NILOC", "ACE_SpraypaintRed"]
 ];
 

@@ -10,8 +10,6 @@ class XDF_MF {
         class fillArsenal {};
         class getUnitAllowedActions {};
         class paradropVehicle {};
-        class putInEarplugs {};
-        class removeEarplugs {};
         class setERV {};
     };
 };
