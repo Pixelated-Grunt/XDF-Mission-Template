@@ -59,6 +59,22 @@ params ["_player"];
                     ] call ace_interact_menu_fnc_createAction;
                     _actions pushBack [_action, [], "_target"]
                 };
+                case "EARPLUGS": {
+                    _action = [
+                        _x,
+                        "Earplugs",
+                        "",
+                        {
+                            if (_player getVariable ["ACE_hasEarPlugsIn", false]) then {
+                                [_this # 1] call FUNC(removeEarplugs)
+                            } else {
+                                [_this # 1] call FUNC(putInEarplugs)
+                            }
+                        },
+                        { true }
+                    ] call ace_interact_menu_fnc_createAction;
+                    _actions pushBack [_action, [], "_target"]
+                };
                 case "NILOC": {
                     if (HASNILOC) then {
                         _action = [_player] call NILOC_fnc_addACEMenu;

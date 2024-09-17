@@ -32,9 +32,13 @@ _actions = [];
     {
         if (_item in toLower(_x)) then {
             _actions pushBack _action
-        }
+        };
     } forEach _unitUniqueItemsHash
 } forEach _actionsItemsHash;
+
+if (_player getVariable ["ACE_hasEarPlugsIn", false]) then {
+    _actions pushBackUnique "EARPLUGS"
+};
 
 _player setVariable ["UnitAllowedActions", _actions];
 
