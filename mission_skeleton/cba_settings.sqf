@@ -13,9 +13,6 @@ force ace_artillerytables_disableArtilleryComputer = true;
 // ACE Cook off
 force ace_cookoff_destroyVehicleAfterCookoff = true;
 
-// ACE Crew Served Weapons
-ace_csw_dragAfterDeploy = true;
-
 // ACE Dragging
 force ace_dragging_dragAndFire = true;
 
@@ -33,25 +30,15 @@ force acex_field_rations_thirstQuenched = 5;
 force acex_field_rations_timeWithoutFood = 5;
 force acex_field_rations_timeWithoutWater = 5;
 
-// ACE Headless
-force acex_headless_enabled = true;
-force acex_headless_transferLoadout = 1;
-
 // ACE Hearing
 force ace_hearing_disableEarRinging = true;
 force ace_hearing_enableCombatDeafness = false;
 force ace_hearing_unconsciousnessVolume = 0.6;
 
-// ACE Interaction Menu
-ace_interact_menu_useListMenuSelf = true;
-
-// ACE Map
-force ace_map_DefaultChannel = 0;
-
 // ACE Medical
 force ace_medical_ai_enabledFor = 2;
 force ace_medical_ai_requireItems = 2;
-force ace_medical_AIDamageThreshold = 10;
+force ace_medical_AIDamageThreshold = 0.2;
 force ace_medical_bleedingCoefficient = 1;
 force ace_medical_blood_bloodLifetime = 600;
 force ace_medical_blood_enabledFor = 2;
@@ -129,18 +116,12 @@ force ace_medical_gui_openAfterTreatment = true;
 
 // ACE Name Tags
 force ace_nametags_ambientBrightnessAffectViewDist = 0.5;
-ace_nametags_defaultNametagColor = [0.77,0.51,0.08,1];
-ace_nametags_nametagColorBlue = [0.67,0.67,1,1];
-ace_nametags_nametagColorGreen = [0.67,1,0.67,1];
-ace_nametags_nametagColorMain = [1,1,1,1];
-ace_nametags_nametagColorRed = [1,0.67,0.67,1];
-ace_nametags_nametagColorYellow = [1,1,0.67,1];
 force ace_nametags_playerNamesMaxAlpha = 0.5;
 force ace_nametags_playerNamesViewDistance = 5;
 force ace_nametags_showCursorTagForVehicles = false;
 ace_nametags_showNamesForAI = false;
 ace_nametags_showPlayerNames = 1;
-force ace_nametags_showPlayerRanks = false;
+ace_nametags_showPlayerRanks = false;
 ace_nametags_showSoundWaves = 1;
 ace_nametags_showVehicleCrewInfo = false;
 ace_nametags_tagSize = 2;
@@ -195,9 +176,6 @@ force ace_scopes_enabled = false;
 
 // ACE Weather
 force ace_weather_windSimulation = false;
-
-// ACRE2
-force acre_sys_core_ts3ChannelName = "Operations";
 
 // ACRE2 Animations
 force radioAnims_cba_ads = true;
@@ -550,3 +528,8 @@ force kat_surgery_surgicalLocation = 3;
 force kat_surgery_ultrasound_MedLevel = 2;
 force kat_surgery_ultrasoundLocation = 0;
 force kat_surgery_ultrasoundTime = 10;
+
+// VCOM SETTINGS
+force VCM_ActivateAI = true;
+force VCM_MINECHANCE = 0;
+force VCM_MINEENABLED = false;
