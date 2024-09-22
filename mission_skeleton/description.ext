@@ -52,11 +52,13 @@ allowFunctionsLog = 1;
 
 //View distance function definition
 #include "taw_vd\GUI.h"
+//#include "niloc\ui\RscAttributes.hpp"
 class CfgFunctions
 {
     #include "taw_vd\CfgFunctions.hpp"
     #include "ffr\functions.hpp"
     #include "functions\CfgFunctions.hpp"
+    //#include "niloc\CfgFunctions.hpp"
 };
 
 //Sound file definitions
