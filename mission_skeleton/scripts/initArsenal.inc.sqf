@@ -34,6 +34,8 @@ private _ssItems = ["u_simc_og107_tee_gas", "u_simc_tcu_mk2_nomex_sub", "h_simc_
 // Hate's digital camera without smart phones
 private _hateItems = ["old_camera_color_hud", "old_camera_color", "nikon_dslr_hud", "old_camera_hud", "nikon_dslr", "old_camera"];
 
-private _allItems = _arma3Items + _sogItems + _aceItems + _acreItems + _gradBeadsItems + _sogCigsItems + _unsReduxItems + _rtbfGearItems + _ssItems + _hateItems;
+//Complete list
+private _fullList = _arma3Items + _sogItems + _aceItems + _acreItems + _gradBeadsItems + _sogCigsItems + _unsReduxItems + _rtbfGearItems + _ssItems + _hateItems;
 
-_allItems
+//diag_log("XDF [MF] INFO: Setting up XDF_virtualItems variable.");
+missionNamespace setVariable ["XDF_virtualItems", _fullList]
