@@ -14,11 +14,15 @@
 /*********************************************************
  * COMMON SECTION - Settings for every missions
  *********************************************************/
+// Setup default radio frequency
 #define MAINRADIO "ACRE_PRC77"
 #define RADIOFREQ 41
 
-// View Distance Settings
-tawvd_disablenone = true;
+[MAINRADIO, "default", "xdf_default_net"] call acre_api_fnc_copyPreset;
+[MAINRADIO, "xdf_default_net", 1, "label", "NET"] call acre_api_fnc_setPresetChannelField;
+[MAINRADIO, "xdf_default_net", 1, "frequencyRX", RADIOFREQ] call acre_api_fnc_setPresetChannelField;
+[MAINRADIO, "xdf_default_net", 1, "frequencyTX", RADIOFREQ] call acre_api_fnc_setPresetChannelField;
+[MAINRADIO, "xdf_default_net"] call acre_api_fnc_setPreset;
 
 // Johnny Boy chatter script that utilises Fox's audio files for side EAST
 JBOY_PatrolChatter_a = compile preprocessfilelinenumbers "scripts\JBOY_PatrolChatter_a.sqf";
@@ -32,15 +36,18 @@ JBOY_PatrolChatter_b = compile preprocessfilelinenumbers "scripts\JBOY_PatrolCha
 //[] execVM "scripts\Chatter_c.sqf";
 //[] execVM "scripts\Chatter_d.sqf";
 
+// List of XDF access items
+XDF_MF_accessItems = createHashMapFromArray [
+    ["SETERV", "ACRE_PRC77"],
+    ["CLRVEG", "ACE_EntrenchingTool"],
+    ["NILOC", "ACE_SpraypaintRed"]
+];
+
+// View Distance Settings
+tawvd_disablenone = true;
+
 // Free Fall off the Ramp
 [] execVM "ffr\ffr_init.sqf";
-
-// Setup default radio frequency
-[MAINRADIO, "default", "xdf_default_net"] call acre_api_fnc_copyPreset;
-[MAINRADIO, "xdf_default_net", 1, "label", "NET"] call acre_api_fnc_setPresetChannelField;
-[MAINRADIO, "xdf_default_net", 1, "frequencyRX", RADIOFREQ] call acre_api_fnc_setPresetChannelField;
-[MAINRADIO, "xdf_default_net", 1, "frequencyTX", RADIOFREQ] call acre_api_fnc_setPresetChannelField;
-[MAINRADIO, "xdf_default_net"] call acre_api_fnc_setPreset;
 
 // Add menu actions to various mission objects with predefined variable names
 {
