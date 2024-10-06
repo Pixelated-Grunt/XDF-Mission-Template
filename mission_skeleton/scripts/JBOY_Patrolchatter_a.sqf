@@ -9,7 +9,7 @@ while { ({ alive _x } count(units _grpA) > 1) } do {
 
        _membersA = units _grpA select {!captive _x};
        _memberA = selectRandom _membersA;
-       _dist = round random [13, 40, 169];
+       _dist = round random [5, 10, 40];
 
        // add-remove sounds here
        _soundA = [
@@ -73,5 +73,5 @@ while { ({ alive _x } count(units _grpA) > 1) } do {
        _random_soundA = selectRandom _soundA;
        [_memberA, [_random_soundA, _dist, 1]] remoteExec["say3D", 0]
     };
-    sleep _intervalA + random(1);
+    sleep (_intervalA + random(1));
 };
