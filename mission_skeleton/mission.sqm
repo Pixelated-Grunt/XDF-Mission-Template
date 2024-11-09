@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=2;
+		nextID=3;
 	};
 	class MarkerIDProvider
 	{
@@ -27,25 +27,33 @@ class EditorData
 		pos[]={4987.9292,377.18024,5241.7212};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
 sourceName="XDF_Base_Mission";
 addons[]=
 {
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"modules_f_vietnam"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="modules_f_vietnam";
+			name="modules_f_vietnam";
+			author="Savage Game Design";
 			url="https://www.arma3.com";
 		};
 	};
@@ -57,13 +65,13 @@ dlcs[]=
 randomSeed=3429649;
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
 		{
 			property="ENH_AddObjectsToZeus";
-			expression="    if (!is3DEN && isServer && _value && !(allCurators isEqualTo [])) then    {      0 spawn      {        scriptName 'ENH_Attribute_AddObjectsToZeus';        while {true} do        {          {          _x addCuratorEditableObjects            [              entities [[], ['Logic'], true],              true            ];          } count allCurators;          sleep 60;        };      };    }";
+			expression="        if (!is3DEN && isServer && _value) then        {            private _objects = allMissionObjects '';            allCurators apply {_x addCuratorEditableObjects [_objects, true]};            addMissionEventHandler ['EntityCreated',            {                params ['_entity'];                allCurators apply {_x addCuratorEditableObjects [[_entity], true]};            }];        }";
 			class Value
 			{
 				class data
@@ -101,7 +109,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			dataType="Logic";
@@ -111,7 +119,7 @@ class Mission
 			};
 			id=1;
 			type="ModuleCurator_F";
-			atlOffset=373.7836;
+			atlOffset=347.18024;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -168,6 +176,16 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5012.4795,5,5535.8999};
+			};
+			id=2;
+			type="vn_module_situationalawarenessmodule_disable";
 		};
 	};
 };
