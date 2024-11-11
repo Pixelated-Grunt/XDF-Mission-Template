@@ -4,12 +4,12 @@ private _grpD = _this select 0;
 private _intervalD = _this select 1;
 
 while { ({ alive _x } count(units _grpD) > 1) } do {
-    if ((behaviour leader _grpD == "Safe")) then {
+    if (!(behaviour leader _grpD == "COMBAT") || !(behaviour leader _grpD == "STEALTH")) then {
        private ["_membersD", "_memberD", "_soundD", "_random_soundD", "_dist"];
 
        _membersD = units _grpD select {!captive _x};
        _memberD = selectRandom _membersD;
-       _dist = round random [5, 10, 20];
+       _dist = round random [10, 30, 70];
 
        // add-remove sounds here
        _soundD = [

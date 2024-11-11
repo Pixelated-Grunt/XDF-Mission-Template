@@ -4,12 +4,12 @@ private _grpA = _this select 0;
 private _intervalA = _this select 1;
 
 while { ({ alive _x } count(units _grpA) > 1) } do {
-    if (!(behaviour leader _grpA == "Safe")) then {
+    if (behaviour leader _grpA == "COMBAT") then {
        private ["_membersA", "_memberA", "_soundA", "_random_soundA", "_dist"];
 
        _membersA = units _grpA select {!captive _x};
        _memberA = selectRandom _membersA;
-       _dist = round random [5, 10, 40];
+       _dist = round random [20, 50, 150];
 
        // add-remove sounds here
        _soundA = [
@@ -71,7 +71,8 @@ while { ({ alive _x } count(units _grpA) > 1) } do {
            "noAudioN30"
        ];
        _random_soundA = selectRandom _soundA;
-       [_memberA, [_random_soundA, _dist, 1]] remoteExec["say3D", 0]
+       [_memberA, [_random_soundA, _dist, 1]] remoteExec["say3D", 0];
+       //diag_log format["AI: %1 playing sound: %2 at distance: %3", _memberA, _random_soundA, _dist];
     };
     sleep (_intervalA + random(1));
 };
