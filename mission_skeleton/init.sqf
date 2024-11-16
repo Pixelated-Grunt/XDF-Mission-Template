@@ -15,6 +15,10 @@
 /**********************************************
  * COMMON SECTION - Settings for every missions
  **********************************************/
+// Suppress radio text
+enableSentences false;
+enableRadio false;
+
 // Setup default radio nets
 ["ACRE_PRC152", "default", "isc"] call acre_api_fnc_copyPreset;
 ["ACRE_PRC117F", "default", "isc"] call acre_api_fnc_copyPreset;
