@@ -14,6 +14,10 @@
 /*********************************************************
  * COMMON SECTION - Settings for every missions
  *********************************************************/
+// Suppress radio text
+enableSentences false;
+enableRadio false;
+
 // Setup default radio frequency
 #define MAINRADIO "ACRE_PRC77"
 #define RADIOFREQ 41
