@@ -8,6 +8,8 @@ THE SOFTWARE IS PROVIDED "AS IS", withOUT WARRANTY OF ANY KinD, expRESS or IMPLI
 This will create markers located on the bottom left of the map stating Server and headless client FPS along with their respective local groups and units.
 */
 
+#define LOGFPS  false
+
 private _sourcestr = "Server";
 private _position = 0;
 
@@ -65,7 +67,11 @@ while {true} do {
     };
     
     _myfpsmarker setMarkertext format ["%1: %2 fps, %3 local groups, %4 local units", _sourcestr, (round (_myfps * 100.0)) / 100.0, _localgroups, _localunits];
-    
+
+    if (LOGFPS) then {
+        diag_log format ["%1: %2 fps, %3 local groups, %4 local units", _sourcestr, (round (_myfps * 100.0)) / 100.0, _localgroups, _localunits]
+    };
+
     sleep 15;
     // updates FPS and markers every 15 secounds
 };
