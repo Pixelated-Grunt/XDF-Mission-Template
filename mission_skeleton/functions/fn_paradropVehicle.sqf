@@ -25,13 +25,16 @@ params [
     ["_vehicle", objNull, [objNull]],
     ["_aircraft", objNull, [objNull]],
     ["_dist", 50, [0]],
-    ["_dir", true, [true]]
+    ["_dir", true, [true]],
+    ["_randomDist", true, [true]]
 ];
 
 if ((_vehicle distance _aircraft) > 10) exitWith {WARNING_2("%1 is too far from %2 for paradrop.", _vehicle, _aircraft)};
 private ["_class", "_para", "_paras", "_p"];
 
 _vehicle allowDamage false;
+//FIXME: for multiple vehicles, there's still a chance they will land on top of each other
+if (_randomDist) then {_dist = selectRandom [_dist, _dist+1, _dist+2, _dist+3]};
 if (_dir) then {_dist = -(_dist)};
 
 //push the vehicle out of the C-130 static
@@ -40,7 +43,7 @@ _vehicle setVelocityModelSpace [0, _dist, 0];
 [
     {
         params ["_vehicle", "_dist"];
-        (velocityModelSpace _vehicle#1) <= (_dist + -1)
+        ((velocityModelSpace _vehicle#1) <= (_dist + -1) && (getPos _vehicle#2 < 200))
     },
     {
         params ["_vehicle"];
@@ -50,6 +53,9 @@ _vehicle setVelocityModelSpace [0, _dist, 0];
         _para setPos getPos _vehicle;
         _paras = [_para];
         _vehicle attachTo [_para, [0, 0, abs ((0 boundingBoxReal _vehicle) # 0 # 2)]];
+
+        // maintain vehicle up
+        _vehicle setVectorUp surfaceNormal getPosASL _vehicle;
 
         if ("tacs_Polaris_B" in (typeOf _vehicle)) then {
             {
@@ -63,25 +69,33 @@ _vehicle setVelocityModelSpace [0, _dist, 0];
             ]
         };
 
-        [{
-            params ["_object", "_parachute"];
+        [
+            {
+                params ["_object", "_parachute"];
 
-            _parachute setVectorUp [0, 0, 1];
-            isNull _object || !alive _parachute
-        }, {
-            params ["_object","_parachute"];
+                _parachute setVectorUp [0, 0, 1];
+                isNull _object || !alive _parachute
+            },
+            {
+                params ["_object","_parachute"];
 
-            if (!alive _parachute && getPos _object # 2 < 2) then {
-                _object setVectorUp surfaceNormal getPosWorld _object;
-                _object setVelocity [0, 0, 0];
+                if (!alive _parachute && getPos _object # 2 < 2) then {
+                    _object setVectorUp surfaceNormal getPosWorld _object;
+                    _object setVelocity [0, 0, 0];
 
-                playSound3D [
-                    "a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss",
-                    _object
-                ];
-                _object allowDamage true
-            }
-        }, [_vehicle, _para, []]] call CBA_fnc_waitUntilAndExecute
+                    playSound3D [
+                        "a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss",
+                        _object
+                    ];
+                    // if vehicle not created with CAN_COLLIDE it sometimes won't stay on the plane
+                    // now have to turn it off if not it will sink into the water
+                    // maybe there's a better command to toggle collide?
+                    _object setVehiclePosition [getPos _object, [], 0, "NONE"];
+                    _object allowDamage true
+                }
+            },
+            [_vehicle, _para, []]
+        ] call CBA_fnc_waitUntilAndExecute
     },
     [_vehicle, _dist]
 ] call CBA_fnc_waitUntilAndExecute

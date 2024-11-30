@@ -47,52 +47,72 @@ private _commonActions = [
 // no need for remoteExec. Also, the stand up action will not be available
 // since this is a typeOf house instead of vehicle
 if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
-    private _vehsNearby = nearestObjects [_aircraft, ["Car", "Ship"], 10];
-    private _veh = objNull;
-
     {_aircraft addAction _x} forEach _commonActions;
 
-    {
-        if (_x isKindOf "LSV_01_base_F" || _x isKindOf "Rubber_duck_base_F") then {
-            _veh = _x;
-            break
-        }
-    } forEach _vehsNearby;
+    _aircraft addAction ["Drop Vehicle", {
+        params ["_aircraft", "_caller"];
+        private "_veh";
 
-    if !(isNull _veh) then {
-        _aircraft setVariable ["cargoVehicles", [_veh]];
-        _aircraft addAction ["Drop Vehicle", {
-            params ["_aircraft", "_caller", "", "_veh"];
-
-            [[_veh], XDF_MF_fnc_addArsenalToCargo] remoteExec ["call", 2];
-            [[_veh, _aircraft], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
-
-            // Let the jump master remove the C-130
-            if (missionNamespace getVariable["XDF_MF_jumpMaster", objNull] isEqualTo _caller) then {
-                [
-                    {
-                        params ["_caller", "_aircraft"];
-                        _caller distance _aircraft > 200
-                    },
-                    {
-                        params ["_caller", "_aircraft"];
-                        _caller addAction ["Radio C-130 to RTB", {
-                            params ["", "_caller", "_actionId", "_aircraft"];
-
-                            _caller removeAction _actionId;
-                            [_aircraft] remoteExec ["hideObjectGlobal", 2]
-                        }, _aircraft, 0, false, true]
-                    },
-                    [_caller, _aircraft],
-                    300,
-                    {
-                        params ["", "_aircraft"];
-                        [_aircraft] remoteExec ["hideObjectGlobal", 2]
-                    }
-                ] call CBA_fnc_waitUntilAndExecute
+        {
+            if (_x isKindOf "LSV_01_base_F" || _x isKindOf "Rubber_duck_base_F") then {
+                _veh = _x;
+                _aircraft setVariable ["cargoVehicle", _veh, true];
+                _aircraft setVariable ["cargoVehicleType", typeOf _veh, true];
+                _aircraft setVariable ["cargoVehiclePos", getPosASL _veh, true];
+                _aircraft setVariable ["cargoVehicleDir", getDir _veh, true];
+                break
             }
-        }, _veh, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this} && {(_target distance (_target getVariable ['cargoVehicles', []])#0) < 10}}"]
-    }
+        } forEach nearestObjects [_aircraft, ["Car", "Ship"], 10];
+
+        [[_veh], XDF_MF_fnc_addArsenalToCargo] remoteExec ["call", 2];
+        [[_veh, _aircraft], XDF_MF_fnc_paradropVehicle] remoteExec ["call", 2];
+
+        // Let the jump master remove the C-130
+        if (missionNamespace getVariable["XDF_MF_jumpMaster", objNull] isEqualTo _caller) then {
+            [
+                {
+                    params ["_caller", "_aircraft"];
+                    _caller distance _aircraft > 200
+                },
+                {
+                    params ["_caller", "_aircraft"];
+                    _caller addAction ["Radio C-130 to RTB", {
+                        params ["", "_caller", "_actionId", "_aircraft"];
+
+                        _caller removeAction _actionId;
+                        [_aircraft] remoteExec ["hideObjectGlobal", 2]
+                    }, _aircraft, 0, false, true]
+                },
+                [_caller, _aircraft],
+                300,
+                {
+                    params ["", "_aircraft"];
+                    [_aircraft] remoteExec ["hideObjectGlobal", 2]
+                }
+            ] call CBA_fnc_waitUntilAndExecute
+        }
+    }, nil, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this} && {count (nearestObjects [_target, ['Car', 'Ship'], 10]) > 0}}"];
+
+    _aircraft addAction ["Reload Vehicle", {
+        params ["_aircraft", "_caller"];
+        private _vehType = _aircraft getVariable ["cargoVehicleType", ""];
+        private _vehVivPos = _aircraft getVariable ["cargoVehiclePos", [0,0,0]];
+        private _vehVivDir = _aircraft getVariable ["cargoVehicleDir", 0];
+
+        diag_log format ["Dropped vehicle type: %1 pos: %2 direction: %3", _vehType, _vehVivPos, _vehVivDir];
+        if(_vehType != "") then { [[_vehType, _vehVivPos, [], 0, "CAN_COLLIDE"]] remoteExec ["createVehicle", 2] };
+
+        // give it a short wait to ensure vehicle are created
+        [
+            {
+                params ["_caller", "_vehVivDir"];
+                private _veh = nearestObjects [_caller, ["Car", "Ship"], 10] select 0;
+                _veh setDir _vehVivDir
+            },
+            [_caller, _vehVivDir],
+            0.05
+        ] call CBA_fnc_waitAndExecute
+    }, nil, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this} && {count (nearestObjects [_target, ['Car', 'Ship'], 10]) == 0}}"]
 } else {
     // For easy testing on self host server to run on everyone
     {[_aircraft, _x] remoteExec ["addAction", [0, -2] select isDedicated, true]} forEach _commonActions
