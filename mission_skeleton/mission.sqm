@@ -27,7 +27,7 @@ class EditorData
 		pos[]={4987.9292,377.18024,5241.7212};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -50,20 +50,20 @@ class AddonsMetaData
 		};
 	};
 };
-dlcs[]=
-{
-	"VN"
-};
 randomSeed=3429649;
+class ScenarioData
+{
+	author="XDF Mission Team";
+};
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
 		{
 			property="ENH_AddObjectsToZeus";
-			expression="    if (!is3DEN && isServer && _value && !(allCurators isEqualTo [])) then    {      0 spawn      {        scriptName 'ENH_Attribute_AddObjectsToZeus';        while {true} do        {          {          _x addCuratorEditableObjects            [              entities [[], ['Logic'], true],              true            ];          } count allCurators;          sleep 60;        };      };    }";
+			expression="        if (!is3DEN && isServer && _value) then        {            private _objects = allMissionObjects '';            allCurators apply {_x addCuratorEditableObjects [_objects, true]};            addMissionEventHandler ['EntityCreated',            {                params ['_entity'];                allCurators apply {_x addCuratorEditableObjects [[_entity], true]};            }];        }";
 			class Value
 			{
 				class data
@@ -78,9 +78,10 @@ class CustomAttributes
 };
 class Mission
 {
-	appId=1227700;
+	assetType="Free";
 	class Intel
 	{
+		briefingName="Project-X Template Mission";
 		timeOfChanges=1800.0002;
 		startWeather=0.2;
 		startWind=0.1;
