@@ -63,6 +63,10 @@ dlcs[]=
 	"VN"
 };
 randomSeed=3429649;
+class ScenarioData
+{
+	author="XDF Mission Team";
+};
 class CustomAttributes
 {
 	class Category0
@@ -89,6 +93,7 @@ class Mission
 	appId=1227700;
 	class Intel
 	{
+		briefingName="XDF Mission Framework";
 		timeOfChanges=1800.0002;
 		startWeather=0.2;
 		startWind=0.1;
