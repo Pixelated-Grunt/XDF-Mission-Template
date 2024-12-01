@@ -105,13 +105,17 @@ if (typeOf _aircraft isEqualTo "C130J_static_EP1") then {
         // give it a short wait to ensure vehicle are created
         [
             {
+                params ["_caller"];
+                !isNil {nearestObjects [_caller, ["Car", "Ship"], 10] select 0}
+            },
+            {
                 params ["_caller", "_vehVivDir"];
                 private _veh = nearestObjects [_caller, ["Car", "Ship"], 10] select 0;
                 _veh setDir _vehVivDir
             },
             [_caller, _vehVivDir],
-            0.05
-        ] call CBA_fnc_waitAndExecute
+            5
+        ] call CBA_fnc_waitUntilAndExecute
     }, nil, 0, false, true, "", "!isNull (_target getVariable ['ffr_jumplight', objNull]) && {!isNull (_target getVariable ['ffr_jumplight_dummy', objNull]) && {_this == leader _this} && {count (nearestObjects [_target, ['Car', 'Ship'], 10]) == 0}}"]
 } else {
     // For easy testing on self host server to run on everyone
