@@ -61,6 +61,11 @@ class CfgFunctions
     //#include "niloc\CfgFunctions.hpp"
 };
 
+//StaboRig
+class Extended_PreInit_EventHandlers {
+    stabo = "call compileScript ['scripts\stabo_preInit.sqf']";
+};
+
 //Sound file definitions
 class CfgSounds {
 	class enAdminN01{name="enAdminN01";sound[]={\Sound\en-admin-n-01.ogg,db+1,1.0};titles[]={};};
