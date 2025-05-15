@@ -34,8 +34,11 @@ private _rtbfGearItems = ["seal_beret_2_ts_1_b", "sog_boonie_2d_tiger_5_d", "sog
 // Hate's digital camera without smart phones
 private _hateItems = ["old_camera_color_hud", "old_camera_color", "nikon_dslr_hud", "old_camera_hud", "nikon_dslr", "old_camera"];
 
+// Australian Army Berets
+private _auArmyBeretsItems = ["au_03_780000_v1", "au_08_780000_v1", "au_05_780000_v1", "au_10_780000_v1", "au_14_780000_v1", "au_13_780000_v1", "au_07_780000_v1", "au_11_780000_v1", "au_06_780000_v1", "au_02_780000_v1", "au_04_780000_v1", "au_12_780000_v1", "au_01_780000_v1"];
+
 //Complete list
-private _fullList = _arma3Items + _sogItems + _nickelItems + _aceItems + _acreItems + _gradBeadsItems + _sogCigsItems + _unsReduxItems + _rtbfGearItems + _hateItems;
+private _fullList = _arma3Items + _sogItems + _nickelItems + _aceItems + _acreItems + _gradBeadsItems + _sogCigsItems + _unsReduxItems + _rtbfGearItems + _hateItems + _auArmyBeretsItems;
 
 //diag_log("XDF [MF] INFO: Setting up XDF_virtualItems variable.");
 missionNamespace setVariable ["XDF_virtualItems", _fullList]
