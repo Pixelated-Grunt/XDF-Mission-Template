@@ -75,13 +75,13 @@ class CustomAttributes
 		class Attribute0
 		{
 			property="ENH_AddObjectsToZeus";
-			expression="        if (!is3DEN && isServer && _value) then        {            private _objects = allMissionObjects '';            allCurators apply {_x addCuratorEditableObjects [_objects, true]};            addMissionEventHandler ['EntityCreated',            {                params ['_entity'];                allCurators apply {_x addCuratorEditableObjects [[_entity], true]};            }];        }";
+			expression="        if (_value isEqualType true) then {_value = 2};        if (!is3DEN && isServer && _value > 0) then        {            _value spawn" \n "            {" \n "                params ['_value'];" \n "                waitUntil {sleep 1; allCurators isNotEqualTo []};" \n "                if (_value == 1 || _value == 2) then                {                    allCurators apply {_x addCuratorEditableObjects [allMissionObjects '', true]};                };                if (_value == 2) then                {                    addMissionEventHandler ['EntityCreated',                    {                        params ['_entity'];                        allCurators apply {_x addCuratorEditableObjects [[_entity], true]};                    }];                };            };        }";
 			class Value
 			{
 				class data
 				{
-					singleType="BOOL";
-					value=1;
+					singleType="SCALAR";
+					value=2;
 				};
 			};
 		};
