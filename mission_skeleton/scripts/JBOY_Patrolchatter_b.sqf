@@ -9,7 +9,7 @@ while { ({ alive _x } count(units _grpB) > 1) } do {
 
        _membersB = units _grpB select {!captive _x};
        _memberB = selectRandom _membersB;
-       _dist = round random [10, 30, 70];
+       _dist = round random [30, 150, 200];
 
        // add-remove sounds here
        _soundB = [
