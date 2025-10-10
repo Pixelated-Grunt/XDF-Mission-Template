@@ -25,9 +25,6 @@ private _greenmagItems = ["greenmag_ammo_556x45_basic_30Rnd", "greenmag_beltlink
 //Hates camera items
 private _hatesItems = ["Nikon_DSLR", "Old_Camera_HUD", "Old_Camera_Color_HUD", "Old_Camera", "Hate_Smartphone", "Hate_Smartphone_HUD", "Old_Camera_Color", "Nikon_DSLR_HUD"];
 
-//KAT Advanced Medical items
-private _katItems = ["kat_Pulseoximeter", "kat_phenylephrine", "kat_accuvac", "kat_mask_M50", "kat_epinephrineIV", "kat_phenylephrineAuto", "kat_vacuum", "kat_guedel", "KAT_Empty_bloodIV_500", "kat_sealant", "kat_norepinephrine", "kat_EACA", "kat_lidocaine", "kat_MFAK", "kat_IV_16", "kat_reboa", "kat_ultrasound", "kat_gasmaskFilter", "kat_naloxone", "kat_IO_FAST", "kat_X_AED", "kat_suction", "kat_aatKit", "kat_chestSeal", "kat_TXA", "kat_pocketBVM", "kat_AFAK", "KAT_Empty_bloodIV_250", "kat_ncdKit", "kat_larynx", "kat_atropine", "kat_AED", "kat_BVM", "kat_amiodarone", "kat_ketamine", "kat_Carbonate", "kat_oxygenTank_150", "kat_Penthrox", "kat_Painkiller", "kat_Pervitin", "kat_Caffeine", "kat_oxygenTank_300"];
-
 //Military Gear Pack items
 private _mgpItems = ["milgp_b_patrol_01_rgr", "milgp_v_mmac_medic_belt_rgr", "milgp_v_mmac_hgunner_belt_rgr", "milgp_u_g3_field_set_mc", "milgp_u_g3_field_set_mcarid", "milgp_v_mmac_marksman_belt_rgr", "milgp_v_mmac_teamleader_belt_rgr", "milgp_u_pcu_g3_field_pants_mcarid", "milgp_v_mmac_grenadier_belt_rgr", "milgp_v_mmac_assaulter_belt_rgr", "milgp_u_pcu_g3_field_pants_mc", "milgp_u_tshirt_g3_field_pants_3CD", "milgp_u_g3_field_set_mcalpine", "milgp_u_tshirt_g3_field_pants_atacsau", "milgp_u_tshirt_g3_field_pants_mcarid", "milgp_u_tshirt_g3_field_pants_khk", "milgp_u_g3_field_set_rolled_mcarid", "milgp_u_g3_field_set_rolled_mc", "milgp_u_tshirt_g3_field_pants_mc", "tacs_milgp_mmac_assaulter_belt_blk", "tacs_milgp_mmac_grenadier_belt_blk", "tacs_milgp_mmac_hgunner_belt_blk", "tacs_milgp_mmac_teamleader_belt_blk", "tacs_milgp_mmac_medic_belt_blk", "tacs_milgp_mmac_marksman_belt_blk"];
 
@@ -38,7 +35,7 @@ private _tacsItems = ["tacs_Backpack_Kitbag_Medic_White", "tacs_Backpack_Carryal
 private _genericItems = ["SMG_03C_TR_black", "Laserbatteries", "SmokeShell", "ClaymoreDirectionalMine_Remote_Mag", "DemoCharge_Remote_Mag", "APERSMine_Range_Mag", "50Rnd_570x28_SMG_03", "SmokeShellRed", "SmokeShellYellow", "ItemWatch", "V_RebreatherB", "muzzle_snds_570", "U_B_Wetsuit", "B_UavTerminal", "muzzle_snds_B", "muzzle_snds_M", "muzzle_snds_L", "ToolKit", "ItemMap", "Laserdesignator", "Binocular", "ItemCompass", "G_B_Diving", "G_Balaclava_blk", "G_Aviator", "G_Bandanna_RedFlame1", "optic_Hamr", "ItemGPS", "H_HelmetSpecB", "H_HelmetB_black", "H_HelmetSpecB_sand", "H_HelmetSpecB_paint1", "ItemAndroid", "ItemcTabHCam", "ItemcTab", "ItemMicroDAGR", "grad_paceCountBeads_functions_paceCountBeads", "Attachable_Helistretcher", "B_Carryall_blk", "B_Parachute", "U_B_CombatUniform_mcam"];
 
 //Complete list
-private _fullList = _ace3Items + _acre2Items + _cupItems + _cfpItems + _greenmagItems + _hatesItems + _katItems + _mgpItems + _tacsItems + _genericItems;
+private _fullList = _ace3Items + _acre2Items + _cupItems + _cfpItems + _greenmagItems + _hatesItems + _mgpItems + _tacsItems + _genericItems;
 
 //diag_log("XDF [MF] INFO: Setting up XDF_virtualItems variable.");
 missionNamespace setVariable ["XDF_virtualItems", _fullList]
