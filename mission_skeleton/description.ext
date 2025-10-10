@@ -63,6 +63,11 @@ class CfgFunctions
 	//#include "niloc\CfgFunctions.hpp"
 };
 
+//StaboRig
+class Extended_PreInit_EventHandlers {
+    stabo = "call compileScript ['scripts\stabo_preInit.sqf']";
+};
+
 //Sound file definitions
 class CfgSounds {
     // Halo sound effects
