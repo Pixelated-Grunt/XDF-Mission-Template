@@ -19,9 +19,6 @@ private _cupItems = ["CUP_B_AFU_IIID_MM14", "CUP_B_Raid_bag_SSO_Ataka_2_Green", 
 //Community Factions Project items
 private _cfpItems = ["SP_Carryall_White", "CFP_AssaultPack_White", "CFP_Shemagh_Full_Black", "CFP_Lungee_BlueGrey", "SP_BaseballCap_Black", "SP_Balaclava_Skull2", "CFP_Polo_Liverpool", "SP_Modular2_White"];
 
-//GreenMag items
-private _greenmagItems = ["greenmag_ammo_556x45_basic_30Rnd", "greenmag_beltlinked_556x45_basic_200", "greenmag_item_speedloader", "greenmag_ammo_762x51_basic_30Rnd", "greenmag_beltlinked_762x51_basic_100", "greenmag_ammo_556x45_tracer_60Rnd", "greenmag_ammo_556x45_basic_60Rnd", "greenmag_ammo_570x28_basic_60Rnd", "greenmag_ammo_762x51_basic_60Rnd", "greenmag_ammo_570x28_basic_30Rnd", "greenmag_ammo_556x45_m995ap_60Rnd", "greenmag_ammo_556x45_tracer_30Rnd", "greenmag_ammo_556x45_m995ap_30Rnd"];
-
 //Hates camera items
 private _hatesItems = ["Nikon_DSLR", "Old_Camera_HUD", "Old_Camera_Color_HUD", "Old_Camera", "Hate_Smartphone", "Hate_Smartphone_HUD", "Old_Camera_Color", "Nikon_DSLR_HUD"];
 
@@ -35,7 +32,7 @@ private _tacsItems = ["tacs_Backpack_Kitbag_Medic_White", "tacs_Backpack_Carryal
 private _genericItems = ["SMG_03C_TR_black", "Laserbatteries", "SmokeShell", "ClaymoreDirectionalMine_Remote_Mag", "DemoCharge_Remote_Mag", "APERSMine_Range_Mag", "50Rnd_570x28_SMG_03", "SmokeShellRed", "SmokeShellYellow", "ItemWatch", "V_RebreatherB", "muzzle_snds_570", "U_B_Wetsuit", "B_UavTerminal", "muzzle_snds_B", "muzzle_snds_M", "muzzle_snds_L", "ToolKit", "ItemMap", "Laserdesignator", "Binocular", "ItemCompass", "G_B_Diving", "G_Balaclava_blk", "G_Aviator", "G_Bandanna_RedFlame1", "optic_Hamr", "ItemGPS", "H_HelmetSpecB", "H_HelmetB_black", "H_HelmetSpecB_sand", "H_HelmetSpecB_paint1", "ItemAndroid", "ItemcTabHCam", "ItemcTab", "ItemMicroDAGR", "grad_paceCountBeads_functions_paceCountBeads", "Attachable_Helistretcher", "B_Carryall_blk", "B_Parachute", "U_B_CombatUniform_mcam"];
 
 //Complete list
-private _fullList = _ace3Items + _acre2Items + _cupItems + _cfpItems + _greenmagItems + _hatesItems + _mgpItems + _tacsItems + _genericItems;
+private _fullList = _ace3Items + _acre2Items + _cupItems + _cfpItems + _hatesItems + _mgpItems + _tacsItems + _genericItems;
 
 //diag_log("XDF [MF] INFO: Setting up XDF_virtualItems variable.");
 missionNamespace setVariable ["XDF_virtualItems", _fullList]
