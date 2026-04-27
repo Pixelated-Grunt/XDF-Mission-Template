@@ -215,6 +215,9 @@ def pick_map(event):
     document.querySelector("#console").innerText = f"Target set to {display_name}. Ready for packaging."
 
 def load_ui():
+    global UI_LOADED
+    if UI_LOADED: return
+    
     grid = document.querySelector("#m-grid")
     grid = document.querySelector("#m-grid")
     grid.innerHTML = ""
@@ -260,6 +263,8 @@ def load_ui():
         """
         card.onclick = pick_map
         grid.appendChild(card)
+
+    UI_LOADED = True
 
 # Initialize
 load_ui()
