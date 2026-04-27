@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XDF Mission Packager Pro</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        :root { --bg: #0d0d0d; --card: #1a1a1a; --gold: #ffd700; --green: #00ff41; --red: #ff4b2b; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #eee; padding: 20px; line-height: 1.5; }
+        .container { max-width: 1100px; margin: auto; }
+        
+        .panel { 
+            background: var(--card); padding: 25px; border-radius: 12px; 
+            border: 1px solid #333; margin-bottom: 30px; position: sticky; 
+            top: 10px; z-index: 100; box-shadow: 0 15px 50px rgba(0,0,0,0.9); 
+        }
+
+        input[type="text"] { 
+            width: 100%; padding: 14px; background: #000; border: 1px solid #444; 
+            color: #fff; border-radius: 8px; margin-top: 10px; font-size: 1.1em; 
+            box-sizing: border-box; outline: none; transition: 0.2s;
+        }
+        input[type="text"]:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
+
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; font-size: 0.9em; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        
+        .card { 
+            background: var(--card); border-radius: 8px; border: 2px solid #222; 
+            overflow: hidden; cursor: pointer; transition: 0.3s; position: relative; 
+        }
+        .card:hover { border-color: #444; transform: translateY(-2px); }
+        .card.active { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2); }
+        
+        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.4; transition: 0.4s; background: #000; }
+        .card.active img { opacity: 1; filter: contrast(1.1); }
+        
+        .card-info { padding: 10px; text-align: center; font-weight: bold; font-size: 0.8em; color: #888; transition: 0.3s; }
+        .card.active .card-info { color: var(--gold); }
+
+        .btn-build { 
+            border: none; padding: 20px; width: 100%; border-radius: 8px; 
+            font-weight: 800; margin-top: 20px; cursor: pointer; font-size: 1.2em; 
+            transition: 0.2s; letter-spacing: 1px;
+        }
+        .btn-ready { background: var(--gold); color: #000; }
+        .btn-ready:hover { background: #ffea00; transform: scale(1.01); }
+        .btn-cancel { background: var(--red); color: #fff; }
+        .btn-build:disabled { background: #333; color: #666; cursor: not-allowed; }
+
+        .progress-container { width: 100%; height: 8px; background: #222; margin-top: 15px; border-radius: 10px; overflow: hidden; display: none; }
+        #progress-bar { width: 0%; height: 100%; background: var(--gold); transition: width 0.1s linear; }
+
+        .console { 
+            margin-top: 20px; font-family: 'Fira Code', monospace; color: var(--green); 
+            font-size: 0.8em; background: #000; padding: 15px; border-radius: 6px; 
+            max-height: 180px; overflow-y: auto; border: 1px solid #222; white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="panel">
+        <h2 style="margin:0; color:var(--gold); font-weight: 900;">XDF MISSION PACKAGER PRO</h2>
+        <input type="text" id="m-name" placeholder="Enter Mission Name (e.g. Operation_Rolling_Thunder)">
+        
+        <div class="controls">
+            <div id="sel-text">Theater: <span style="color:var(--gold)">Select a map below</span></div>
+            <div>
+                <input type="checkbox" id="clear-cache" style="cursor:pointer"> 
+                <label for="clear-cache" style="cursor:pointer"> Force Refresh (Bypass CDN)</label>
+            </div>
+        </div>
+
+        <button id="main-btn" class="btn-build btn-ready" disabled>GENERATE MISSION .ZIP</button>
+        
+        <div class="progress-container" id="p-container">
+            <div id="progress-bar"></div>
+        </div>
+        
+        <div id="console" class="console">Initialize: Ready for user input.</div>
+    </div>
+
+    <div id="m-grid" class="grid"></div>
+</div>
+
+<script type="py">
+import re, io, zipfile, time, asyncio
+from pyscript import document, window
+from pyodide.http import pyfetch
+
+# --- CORE CONFIG ---
+USER = "Pixelated-Grunt"
+REPO = "XDF-Mission-Template"
+BRANCH = "gh-pages"
+SKELETON_PATH = "mission_skeleton"
+PROXY_URL = "https://xdf-mission-proxy.nomoreham.workers.dev"
+IMG_BASE = f"https://raw.githubusercontent.com/{USER}/{REPO}/{BRANCH}/img/"
+
+SELECTED_SUFFIX = None
+IS_GENERATING = False
+CANCEL_REQUESTED = False
+
+async def handle_click(event):
+    global IS_GENERATING, CANCEL_REQUESTED
+    if not IS_GENERATING: 
+        await build_pack()
+    else:
+        CANCEL_REQUESTED = True
+        document.querySelector("#console").innerText += "\n[!] ABORTING GENERATION..."
+
+async def build_pack():
+    global IS_GENERATING, CANCEL_REQUESTED
+    name_raw = document.querySelector("#m-name").value
+    log = document.querySelector("#console")
+    p_bar = document.querySelector("#progress-bar")
+    p_cont = document.querySelector("#p-container")
+    btn = document.querySelector("#main-btn")
+    force_refresh = document.querySelector("#clear-cache").checked
+    
+    if not name_raw:
+        log.innerText = "⚠️ ERROR: Name your mission first."; return
+    if not SELECTED_SUFFIX:
+        log.innerText = "⚠️ ERROR: Pick a theater below."; return
+
+    IS_GENERATING, CANCEL_REQUESTED = True, False
+    btn.innerText, btn.className = "STOP GENERATION", "btn-build btn-cancel"
+    p_cont.style.display, p_bar.style.width = "block", "0%"
+    
+    # Format Folder Name
+    clean_name = re.sub(r'[^a-zA-Z0-9]', '_', name_raw).strip('_')
+    mission_folder = f"{clean_name}.{SELECTED_SUFFIX}"
+    
+    # Cache Control
+    fetch_policy = "reload" if force_refresh else "default"
+    t_stamp = int(time.time())
+
+    try:
+        log.innerText = "Step 1: Contacting Cloudflare Proxy..."
+        api_url = f"{PROXY_URL}?cb={t_stamp}" if force_refresh else PROXY_URL
+        
+        res = await pyfetch(api_url, cache=fetch_policy)
+        data = await res.json()
+        
+        # Get blobs only
+        targets = [i for i in data['tree'] if i['path'].startswith(SKELETON_PATH) and i['type'] == 'blob']
+        total = len(targets)
+        log.innerText = f"Step 2: Tree Fetched. Transferring {total} files..."
+
+        zip_io = io.BytesIO()
+        with zipfile.ZipFile(zip_io, "w", zipfile.ZIP_DEFLATED) as zf:
+            async def process_file(target, idx):
+                if CANCEL_REQUESTED: return
+                rel = target['path'].replace(f"{SKELETON_PATH}/", "")
+                
+                # Fetch Raw Data from GitHub
+                raw_base = f"https://raw.githubusercontent.com/{USER}/{REPO}/main/{target['path']}"
+                raw_url = f"{raw_base}?t={t_stamp}" if force_refresh else raw_base
+                
+                try:
+                    f_res = await pyfetch(raw_url, cache=fetch_policy)
+                    zf.writestr(f"{mission_folder}/{rel}", await f_res.bytes())
+                    
+                    # Update Progress UI
+                    percentage = int((idx / total) * 100)
+                    p_bar.style.width = f"{percentage}%"
+                    log.innerText = f"[{percentage}%] Fetched: {rel}"
+                except:
+                    log.innerText += f"\n[!] Warning: Failed to fetch {rel}"
+
+            # Concurrent downloads for "Buttery Smooth" performance
+            tasks = [process_file(t, i) for i, t in enumerate(targets, 1)]
+            await asyncio.gather(*tasks)
+
+        if not CANCEL_REQUESTED:
+            log.innerText = "Step 3: Compiling .ZIP and triggering download..."
+            zip_io.seek(0)
+            blob_data = window.Uint8Array.new(zip_io.getvalue())
+            url = window.URL.createObjectURL(window.Blob.new([blob_data], {"type": "application/zip"}))
+            
+            # Virtual Click
+            anchor = document.createElement("a")
+            anchor.href = url
+            anchor.download = f"{mission_folder}.zip"
+            anchor.click()
+            log.innerText = f"✅ SUCCESS: {mission_folder}.zip created."
+        else:
+            log.innerText = "🛑 GENERATION TERMINATED."
+        
+    except Exception as e:
+        log.innerText += f"\n❌ SYSTEM ERROR: {str(e)}"
+    
+    IS_GENERATING = False
+    btn.innerText, btn.className = "GENERATE MISSION .ZIP", "btn-build btn-ready"
+    p_cont.style.display = "none"
+
+def pick_map(event):
+    global SELECTED_SUFFIX
+    if IS_GENERATING: return
+    
+    SELECTED_SUFFIX = event.currentTarget.getAttribute("data-s")
+    display_name = event.currentTarget.getAttribute("data-n")
+    
+    document.querySelector("#sel-text").innerHTML = f"Theater: <span style='color:var(--gold)'>{display_name}</span>"
+    document.querySelector("#main-btn").disabled = False
+    
+    for card in document.querySelectorAll(".card"):
+        card.classList.remove("active")
+    event.currentTarget.classList.add("active")
+    document.querySelector("#console").innerText = f"Target set to {display_name}. Ready for packaging."
+
+def load_ui():
+    grid = document.querySelector("#m-grid")
+    # All 19 maps from your CfgWorlds dump
+    maps = [
+        ["Altis", "Altis"], ["Ba Long, Quang Tri", "urx_jnd_BaLong"], ["Cam Lao Nam", "cam_lao_nam"],
+        ["Da Krong, Quang Tri", "DaKrong"], ["Dak Pek, Kon Tum", "urx_jnd_dakpek"], ["Dong Giang", "dong_giang"],
+        ["Doung Island, Rung Sat", "RungSat"], ["Hutan", "fox_hutan"], ["Khe Sanh", "vn_khe_sanh"],
+        ["Livonia", "Enoch"], ["Lowlands, Quang Ngai", "csj_lowlands"], ["Malden 2035", "Malden"],
+        ["Pamai", "fox_pamai"], ["Rung Sat Special Zone", "vnx_rssz"], ["Song Bin Tanh", "song_bin_tanh"],
+        ["Stratis", "Stratis"], ["Tanoa", "Tanoa"], ["The Bra", "vn_the_bra"], ["Vanam", "fox_vanam"]
+    ]
+    
+    for m_name, m_suffix in maps:
+        card = document.createElement("div")
+        card.className = "card"
+        card.setAttribute("data-s", m_suffix)
+        card.setAttribute("data-n", m_name)
+        
+        thumb = f"{IMG_BASE}{m_suffix}.jpg"
+        # Handles missing images with a clean placeholder
+        card.innerHTML = f"""
+            <img src="{thumb}" onerror="this.src='https://placehold.co/640x360/1a1a1a/ffd700?text={m_suffix}'">
+            <div class="card-info">{m_name}</div>
+        """
+        card.onclick = pick_map
+        grid.appendChild(card)
+
+# Initialize
+load_ui()
+document.querySelector("#main-btn").onclick = handle_click
+</script>
+</body>
+</html>
