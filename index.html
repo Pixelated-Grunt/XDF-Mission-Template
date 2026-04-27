@@ -216,6 +216,9 @@ def pick_map(event):
 
 def load_ui():
     grid = document.querySelector("#m-grid")
+    grid = document.querySelector("#m-grid")
+    grid.innerHTML = ""
+    
     # All 19 maps from your CfgWorlds dump
     maps = [
         ["Altis", "Altis"], ["Ba Long, Quang Tri", "urx_jnd_BaLong"], ["Cam Lao Nam", "cam_lao_nam"],
@@ -226,6 +229,23 @@ def load_ui():
         ["Stratis", "Stratis"], ["Tanoa", "Tanoa"], ["The Bra", "vn_the_bra"], ["Vanam", "fox_vanam"]
     ]
     
+    for m_name, m_suffix in maps:
+        card = document.createElement("div")
+        card.className = "card"
+        
+        # Solution: Use a background-color or a CSS 'loading' state
+        # instead of an immediate <img> tag that triggers an error.
+        thumb = f"{IMG_BASE}{m_suffix}.jpg"
+        
+        card.innerHTML = f"""
+            <div class="img-wrapper" style="background: #111; height: 120px;">
+                <img src="{thumb}" 
+                     loading="lazy" 
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=placeholder>{m_suffix}</div>'">
+            </div>
+            <div class="card-info">{m_name}</div>
+        """
+
     for m_name, m_suffix in maps:
         card = document.createElement("div")
         card.className = "card"
