@@ -30,12 +30,13 @@
         
         .card { 
             background: var(--card); border-radius: 8px; border: 2px solid #222; 
-            overflow: hidden; cursor: pointer; transition: 0.3s; position: relative; 
+            overflow: hidden; cursor: pointer; transition: 0.3s; position: relative;
+            aspect-ratio: 16 / 11;
         }
         .card:hover { border-color: #444; transform: translateY(-2px); }
         .card.active { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2); }
         
-        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.4; transition: 0.4s; background: #000; }
+        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.4; transition: 0.4s; background: #111; display: block; }
         .card.active img { opacity: 1; filter: contrast(1.1); }
         
         .card-info { padding: 10px; text-align: center; font-weight: bold; font-size: 0.8em; color: #888; transition: 0.3s; }
@@ -59,6 +60,7 @@
             font-size: 0.8em; background: #000; padding: 15px; border-radius: 6px; 
             max-height: 180px; overflow-y: auto; border: 1px solid #222; white-space: pre-wrap;
         }
+        .placeholder-text { color: #444; font-size: 0.7em; padding: 40px 10px; text-align: center; }
     </style>
 </head>
 <body>
@@ -99,9 +101,9 @@ REPO = "XDF-Mission-Template"
 BRANCH = "gh-pages"
 SKELETON_PATH = "mission_skeleton"
 IMG_BASE = f"https://raw.githubusercontent.com/{USER}/{REPO}/{BRANCH}/img/"
-
 PROXY_URL = "https://xdf-mission-packer.xdf-arma.workers.dev/api/tree"
 
+# --- STATE ---
 SELECTED_SUFFIX = None
 IS_GENERATING = False
 CANCEL_REQUESTED = False
@@ -133,11 +135,8 @@ async def build_pack():
     btn.innerText, btn.className = "STOP GENERATION", "btn-build btn-cancel"
     p_cont.style.display, p_bar.style.width = "block", "0%"
     
-    # Format Folder Name
     clean_name = re.sub(r'[^a-zA-Z0-9]', '_', name_raw).strip('_')
     mission_folder = f"{clean_name}.{SELECTED_SUFFIX}"
-    
-    # Cache Control
     fetch_policy = "reload" if force_refresh else "default"
     t_stamp = int(time.time())
 
@@ -148,7 +147,6 @@ async def build_pack():
         res = await pyfetch(api_url, cache=fetch_policy)
         data = await res.json()
         
-        # Get blobs only
         targets = [i for i in data['tree'] if i['path'].startswith(SKELETON_PATH) and i['type'] == 'blob']
         total = len(targets)
         log.innerText = f"Step 2: Tree Fetched. Transferring {total} files..."
@@ -158,33 +156,27 @@ async def build_pack():
             async def process_file(target, idx):
                 if CANCEL_REQUESTED: return
                 rel = target['path'].replace(f"{SKELETON_PATH}/", "")
-                
-                # Fetch Raw Data from GitHub
                 raw_base = f"https://raw.githubusercontent.com/{USER}/{REPO}/main/{target['path']}"
                 raw_url = f"{raw_base}?t={t_stamp}" if force_refresh else raw_base
                 
                 try:
                     f_res = await pyfetch(raw_url, cache=fetch_policy)
                     zf.writestr(f"{mission_folder}/{rel}", await f_res.bytes())
-                    
-                    # Update Progress UI
                     percentage = int((idx / total) * 100)
                     p_bar.style.width = f"{percentage}%"
                     log.innerText = f"[{percentage}%] Fetched: {rel}"
                 except:
                     log.innerText += f"\n[!] Warning: Failed to fetch {rel}"
 
-            # Concurrent downloads for "Buttery Smooth" performance
             tasks = [process_file(t, i) for i, t in enumerate(targets, 1)]
             await asyncio.gather(*tasks)
 
         if not CANCEL_REQUESTED:
-            log.innerText = "Step 3: Compiling .ZIP and triggering download..."
+            log.innerText = "Step 3: Compiling .ZIP..."
             zip_io.seek(0)
             blob_data = window.Uint8Array.new(zip_io.getvalue())
             url = window.URL.createObjectURL(window.Blob.new([blob_data], {"type": "application/zip"}))
             
-            # Virtual Click
             anchor = document.createElement("a")
             anchor.href = url
             anchor.download = f"{mission_folder}.zip"
@@ -217,13 +209,12 @@ def pick_map(event):
 
 def load_ui():
     global UI_LOADED
-    if UI_LOADED: return
-    
     grid = document.querySelector("#m-grid")
-    grid = document.querySelector("#m-grid")
-    grid.innerHTML = ""
     
-    # All 19 maps from your CfgWorlds dump
+    # Defensive check to prevent spamming/reactive loops
+    if UI_LOADED or grid.children.length > 0: 
+        return
+    
     maps = [
         ["Altis", "Altis"], ["Ba Long, Quang Tri", "urx_jnd_BaLong"], ["Cam Lao Nam", "cam_lao_nam"],
         ["Da Krong, Quang Tri", "DaKrong"], ["Dak Pek, Kon Tum", "urx_jnd_dakpek"], ["Dong Giang", "dong_giang"],
@@ -233,23 +224,7 @@ def load_ui():
         ["Stratis", "Stratis"], ["Tanoa", "Tanoa"], ["The Bra", "vn_the_bra"], ["Vanam", "fox_vanam"]
     ]
     
-    for m_name, m_suffix in maps:
-        card = document.createElement("div")
-        card.className = "card"
-        
-        # Solution: Use a background-color or a CSS 'loading' state
-        # instead of an immediate <img> tag that triggers an error.
-        thumb = f"{IMG_BASE}{m_suffix}.jpg"
-        
-        card.innerHTML = f"""
-            <div class="img-wrapper" style="background: #111; height: 120px;">
-                <img src="{thumb}" 
-                     loading="lazy" 
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=placeholder>{m_suffix}</div>'">
-            </div>
-            <div class="card-info">{m_name}</div>
-        """
-
+    # Use a Fragment or single-pass construction for performance
     for m_name, m_suffix in maps:
         card = document.createElement("div")
         card.className = "card"
@@ -257,9 +232,11 @@ def load_ui():
         card.setAttribute("data-n", m_name)
         
         thumb = f"{IMG_BASE}{m_suffix}.jpg"
-        # Handles missing images with a clean placeholder
+        # Refactored onerror: One-time swap to a clean CSS-based placeholder
         card.innerHTML = f"""
-            <img src="{thumb}" onerror="this.src='https://placehold.co/640x360/1a1a1a/ffd700?text={m_suffix}'">
+            <img src="{thumb}" loading="lazy" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="placeholder-text" style="display:none;">{m_suffix}</div>
             <div class="card-info">{m_name}</div>
         """
         card.onclick = pick_map
@@ -267,7 +244,7 @@ def load_ui():
 
     UI_LOADED = True
 
-# Initialize
+# --- INIT ---
 load_ui()
 document.querySelector("#main-btn").onclick = handle_click
 </script>
