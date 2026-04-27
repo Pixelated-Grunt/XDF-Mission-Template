@@ -94,12 +94,13 @@ from pyscript import document, window
 from pyodide.http import pyfetch
 
 # --- CORE CONFIG ---
-const PROXY_URL = "https://xdf-mission-packer.xdf-arma.workers.dev/api/tree"
 USER = "Pixelated-Grunt"
 REPO = "XDF-Mission-Template"
 BRANCH = "gh-pages"
 SKELETON_PATH = "mission_skeleton"
 IMG_BASE = f"https://raw.githubusercontent.com/{USER}/{REPO}/{BRANCH}/img/"
+
+PROXY_URL = "https://xdf-mission-packer.xdf-arma.workers.dev/api/tree"
 
 SELECTED_SUFFIX = None
 IS_GENERATING = False
