@@ -7,40 +7,63 @@
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <style>
-        :root { --bg: #0d0d0d; --card: #1a1a1a; --gold: #ffd700; --green: #00ff41; --red: #ff4b2b; }
+        :root { --bg: #0d0d0d; --card: #1a1a1a; --gold: #ffd700; --green: #00ff41; --red: #ff4b2b; --border: #333; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #eee; padding: 20px; line-height: 1.5; }
         .container { max-width: 1100px; margin: auto; }
         
         .panel { 
             background: var(--card); padding: 25px; border-radius: 12px; 
-            border: 1px solid #333; margin-bottom: 30px; position: sticky; 
-            top: 10px; z-index: 100; box-shadow: 0 15px 50px rgba(0,0,0,0.9); 
+            border: 1px solid var(--border); margin-bottom: 30px; 
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9); 
+            display: flex; flex-direction: column;
+            min-height: 600px;
         }
 
-        input[type="text"] { 
+        input[type="text"], textarea { 
             width: 100%; padding: 14px; background: #000; border: 1px solid #444; 
-            color: #fff; border-radius: 8px; margin-top: 10px; font-size: 1.1em; 
-            box-sizing: border-box; outline: none; transition: 0.2s;
+            color: #fff; border-radius: 8px; margin-top: 10px; font-size: 1em; 
+            box-sizing: border-box; outline: none; transition: 0.2s; font-family: inherit;
         }
-        input[type="text"]:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
+        input[type="text"]:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
 
-        .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; font-size: 0.9em; }
+        .tabs { display: flex; gap: 10px; margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .tab-btn { 
+            background: transparent; border: 1px solid var(--border); color: #888; 
+            padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: 0.2s;
+            font-weight: bold; font-family: inherit;
+        }
+        .tab-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
+
+        .tab-content { display: none; flex: 1; padding-top: 15px; }
+        .tab-content.active { display: flex; flex-direction: column; }
+
+        .briefing-list { 
+            display: flex; flex-direction: column; gap: 10px; 
+            overflow-y: auto; max-height: 70vh; padding-right: 15px; margin-top: 10px;
+        }
+        /* Custom scrollbar for briefing list */
+        .briefing-list::-webkit-scrollbar { width: 8px; }
+        .briefing-list::-webkit-scrollbar-track { background: #000; border-radius: 10px; }
+        .briefing-list::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #000; }
+        .briefing-list::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        .briefing-item { margin-bottom: 25px; }
+        .briefing-item label { display: block; font-size: 0.9em; color: var(--gold); font-weight: 800; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .briefing-item textarea { height: 300px; resize: none; border-color: #333; flex-shrink: 0; }
+        #metadata textarea { height: 120px; }
+
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; font-size: 0.9em; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
         
         .card { 
             background: var(--card); border-radius: 8px; border: 2px solid #222; 
-            overflow: hidden; cursor: pointer; transition: 0.3s; position: relative;
-            aspect-ratio: 16 / 11;
+            padding: 20px; text-align: center; cursor: pointer; transition: 0.3s; 
+            display: flex; align-items: center; justify-content: center;
+            min-height: 80px; font-weight: bold; font-size: 0.9em; color: #888;
         }
-        .card:hover { border-color: #444; transform: translateY(-2px); }
-        .card.active { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2); }
-        
-        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.4; transition: 0.4s; background: #111; display: block; }
-        .card.active img { opacity: 1; filter: contrast(1.1); }
-        
-        .card-info { padding: 10px; text-align: center; font-weight: bold; font-size: 0.8em; color: #888; transition: 0.3s; }
-        .card.active .card-info { color: var(--gold); }
+        .card:hover { border-color: #444; transform: translateY(-2px); color: #fff; }
+        .card.active { border-color: var(--gold); color: var(--gold); background: #222; }
 
         .btn-build { 
             border: none; padding: 20px; width: 100%; border-radius: 8px; 
@@ -50,7 +73,7 @@
         .btn-ready { background: var(--gold); color: #000; }
         .btn-ready:hover { background: #ffea00; transform: scale(1.01); }
         .btn-cancel { background: var(--red); color: #fff; }
-        .btn-build:disabled { background: #333; color: #666; cursor: not-allowed; }
+        .btn-build:disabled { background: #333; color: #666; cursor: not-allowed; transform: none; }
 
         .progress-container { width: 100%; height: 8px; background: #222; margin-top: 15px; border-radius: 10px; overflow: hidden; display: none; }
         #progress-bar { width: 0%; height: 100%; background: var(--gold); transition: width 0.1s linear; }
@@ -58,9 +81,8 @@
         .console { 
             margin-top: 20px; font-family: 'Fira Code', monospace; color: var(--green); 
             font-size: 0.8em; background: #000; padding: 15px; border-radius: 6px; 
-            max-height: 180px; overflow-y: auto; border: 1px solid #222; white-space: pre-wrap;
+            max-height: 120px; overflow-y: auto; border: 1px solid #222; white-space: pre-wrap;
         }
-        .placeholder-text { color: #444; font-size: 0.7em; padding: 40px 10px; text-align: center; }
     </style>
 </head>
 <body>
@@ -68,28 +90,137 @@
 <div class="container">
     <div class="panel">
         <h2 style="margin:0; color:var(--gold); font-weight: 900;">XDF MISSION PACKAGER PRO</h2>
-        <input type="text" id="m-name" placeholder="Enter Mission Name (Tip: Try stick with just characters and digits. e.g. Operation Rolling Thunder).">
         
-        <div class="controls">
-            <div id="sel-text">Theater: <span style="color:var(--gold)">Select a map below</span></div>
-            <div>
-                <input type="checkbox" id="clear-cache" style="cursor:pointer"> 
-                <label for="clear-cache" style="cursor:pointer"> Force Refresh (Bypass CDN)</label>
+        <div class="tabs">
+            <button id="tab-meta" class="tab-btn active" onclick="openTab('metadata')">Mission Info</button>
+            <button id="tab-brief" class="tab-btn" onclick="openTab('briefing')">Briefing</button>
+        </div>
+
+        <div id="metadata" class="tab-content active">
+            <div class="briefing-item">
+                <label>MISSION TITLE (OnLoadName)</label>
+                <input type="text" id="m-name" placeholder="The large title shown on the loading screen. (e.g. Operation Rolling Thunder)">
+            </div>
+            
+            <div class="briefing-item">
+                <label>AUTHOR</label>
+                <input type="text" id="m-author" placeholder="Your name (e.g. Grunt). ' & XDF Mission Team' will be added automatically.">
+            </div>
+
+            <div class="briefing-item">
+                <label>MISSION OVERVIEW (onLoadMission)</label>
+                <textarea id="m-desc" style="height: 80px;" placeholder="The subtitle or flavor text shown below the title on the loading screen."></textarea>
+            </div>
+
+            <div class="briefing-item">
+                <label>INTRO TEXT (onLoadIntro)</label>
+                <input type="text" id="m-intro" placeholder="Text shown while the world is loading for the intro sequence.">
+            </div>
+
+            <div class="briefing-item">
+                <label>VERSION</label>
+                <input type="text" id="m-version" placeholder="Version suffix (e.g. v0.1). Will result in 'COOP 1-16 [Title] [Version]'" value="v0.1">
+            </div>
+
+            <div class="controls">
+                <div id="sel-text">Theater: <span style="color:var(--gold)">Select a map below</span></div>
+                <div>
+                    <input type="checkbox" id="clear-cache" style="cursor:pointer"> 
+                    <label for="clear-cache" style="cursor:pointer"> Force Refresh (Bypass CDN)</label>
+                </div>
+            </div>
+
+            <button id="main-btn" class="btn-build btn-ready" disabled>GENERATE MISSION .ZIP</button>
+            
+            <div class="progress-container" id="p-container">
+                <div id="progress-bar"></div>
+            </div>
+            
+            <div id="console" class="console">Initialize: Ready for user input.</div>
+
+            <div id="m-grid" class="grid" style="margin-top: 30px;"></div>
+        </div>
+
+        <div id="briefing" class="tab-content">
+            <div class="briefing-list">
+                <div class="briefing-item">
+                    <label>1. ENEMY</label>
+                    <textarea id="b-enemy" placeholder="Describe enemy forces, positions, and intent..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>2. FRIENDLY</label>
+                    <textarea id="b-friendly" placeholder="Describe friendly assets, positions, and adjacent units..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>3. MISSION</label>
+                    <textarea id="b-mission" placeholder="Clear and concise statement of the task and purpose..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>4. EXECUTION</label>
+                    <textarea id="b-execution" placeholder="Detailed plan, phases, and maneuvers..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>5. SUPPORT</label>
+                    <textarea id="b-support" placeholder="Artillery, CAS, Medical, and Logistics support..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>6. TIMING</label>
+                    <textarea id="b-timing" placeholder="H-Hour, phase durations, and critical windows..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>7. ADMIN & LOG</label>
+                    <textarea id="b-admin" placeholder="Resupply points, casualty handling, and equipment..."></textarea>
+                </div>
+                <div class="briefing-item">
+                    <label>8. COMD & SIG</label>
+                    <textarea id="b-comd" placeholder="Command structure, frequencies, and callsigns..."></textarea>
+                </div>
+                <button id="save-btn" class="btn-build btn-ready" style="background: var(--green); margin-top: 10px; margin-bottom: 20px;" onclick="saveBriefing()" disabled>SAVE BRIEFING CHANGES</button>
             </div>
         </div>
-
-        <button id="main-btn" class="btn-build btn-ready" disabled>GENERATE MISSION .ZIP</button>
-        
-        <div class="progress-container" id="p-container">
-            <div id="progress-bar"></div>
-        </div>
-        
-        <div id="console" class="console">Initialize: Ready for user input.</div>
     </div>
-
-    <div id="m-grid" class="grid"></div>
 </div>
 
+<script>
+    // Tab switching logic
+    function openTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        
+        if (tabId === 'metadata') document.getElementById('tab-meta').classList.add('active');
+        if (tabId === 'briefing') document.getElementById('tab-brief').classList.add('active');
+    }
+
+    // Briefing dirty state tracking
+    let briefingState = {};
+    function saveBriefing() {
+        document.querySelectorAll('#briefing textarea').forEach(tx => {
+            briefingState[tx.id] = tx.value;
+        });
+        document.getElementById('save-btn').disabled = true;
+        document.getElementById('console').innerText = "✅ Briefing content saved to local memory. Ready for packaging.";
+    }
+
+    function checkForChanges() {
+        let changed = false;
+        document.querySelectorAll('#briefing textarea').forEach(tx => {
+            if (tx.value !== (briefingState[tx.id] || "")) changed = true;
+        });
+        document.getElementById('save-btn').disabled = !changed;
+    }
+
+    // Initialize dirty state tracking
+    function initEditor() {
+        document.querySelectorAll('#briefing textarea').forEach(tx => {
+            briefingState[tx.id] = tx.value;
+            tx.oninput = checkForChanges;
+        });
+    }
+    
+    // Call initEditor after DOM loads or PyScript initializes
+    window.addEventListener('DOMContentLoaded', initEditor);
+</script>
 <script type="py">
 import re, io, zipfile, time, asyncio
 from pyscript import document, window
@@ -119,15 +250,19 @@ async def handle_click(event):
 
 async def build_pack():
     global IS_GENERATING, CANCEL_REQUESTED
-    name_raw = document.querySelector("#m-name").value
+    # Metadata fields
+    m_name = document.querySelector("#m-name").value or "XDF Base Mission"
+    m_author = document.querySelector("#m-author").value
+    m_desc = document.querySelector("#m-desc").value or "Template mission"
+    m_intro = document.querySelector("#m-intro").value or "Template mission"
+    m_version = document.querySelector("#m-version").value or "v0.1"
+
     log = document.querySelector("#console")
     p_bar = document.querySelector("#progress-bar")
     p_cont = document.querySelector("#p-container")
     btn = document.querySelector("#main-btn")
     force_refresh = document.querySelector("#clear-cache").checked
     
-    if not name_raw:
-        log.innerText = "⚠️ ERROR: Name your mission first."; return
     if not SELECTED_SUFFIX:
         log.innerText = "⚠️ ERROR: Pick a theater below."; return
 
@@ -135,7 +270,7 @@ async def build_pack():
     btn.innerText, btn.className = "STOP GENERATION", "btn-build btn-cancel"
     p_cont.style.display, p_bar.style.width = "block", "0%"
     
-    clean_name = re.sub(r'[^a-zA-Z0-9]', '_', name_raw).strip('_')
+    clean_name = re.sub(r'[^a-zA-Z0-9]', '_', m_name).strip('_')
     mission_folder = f"{clean_name}.{SELECTED_SUFFIX}"
     fetch_policy = "reload" if force_refresh else "default"
     t_stamp = int(time.time())
@@ -147,8 +282,9 @@ async def build_pack():
         res = await pyfetch(api_url, cache=fetch_policy)
         data = await res.json()
         
-        targets = [i for i in data['tree'] if i['path'].startswith(SKELETON_PATH) and i['type'] == 'blob']
-        total = len(targets)
+        # We handle briefing.sqf ourselves, so skip it from targets
+        targets = [i for i in data['tree'] if i['path'].startswith(SKELETON_PATH) and i['type'] == 'blob' and not i['path'].endswith('briefing.sqf')]
+        total = len(targets) + 1 # +1 for our generated briefing
         log.innerText = f"Step 2: Tree Fetched. Transferring {total} files..."
 
         zip_io = io.BytesIO()
@@ -161,15 +297,53 @@ async def build_pack():
                 
                 try:
                     f_res = await pyfetch(raw_url, cache=fetch_policy)
-                    zf.writestr(f"{mission_folder}/{rel}", await f_res.bytes())
+                    content = await f_res.bytes()
+                    
+                    # Surgical edit for description.ext
+                    if rel == "description.ext":
+                        text = content.decode('utf-8')
+                        
+                        full_author = f"{m_author} & XDF Mission Team" if m_author else "XDF Mission Team"
+                        briefing_name = f"COOP 1-16 {m_name} {m_version}"
+
+                        text = re.sub(r'author\s*=\s*".*?";', f'author = "{full_author}";', text)
+                        text = re.sub(r'OnLoadName\s*=\s*".*?";', f'OnLoadName = "{m_name}";', text)
+                        text = re.sub(r'onLoadMission\s*=\s*".*?";', f'onLoadMission = "{m_desc}";', text)
+                        text = re.sub(r'onLoadIntro\s*=\s*".*?";', f'onLoadIntro = "{m_intro}";', text)
+                        text = re.sub(r'briefingName\s*=\s*".*?";', f'briefingName = "{briefing_name}";', text)
+                        
+                        content = text.encode('utf-8')
+
+                    zf.writestr(f"{mission_folder}/{rel}", content)
                     percentage = int((idx / total) * 100)
                     p_bar.style.width = f"{percentage}%"
                     log.innerText = f"[{percentage}%] Fetched: {rel}"
-                except:
-                    log.innerText += f"\n[!] Warning: Failed to fetch {rel}"
+                except Exception as e:
+                    log.innerText += f"\n[!] Warning: Failed to fetch {rel} ({str(e)})"
 
             tasks = [process_file(t, i) for i, t in enumerate(targets, 1)]
             await asyncio.gather(*tasks)
+
+            # Step 2.5: Generate briefing.sqf from scratch
+            if not CANCEL_REQUESTED:
+                log.innerText = f"[95%] Generating briefing.sqf..."
+                sections = [
+                    ("1. Enemy", "b-enemy"), ("2. Friendly", "b-friendly"), 
+                    ("3. Mission", "b-mission"), ("4. Execution", "b-execution"),
+                    ("5. Support", "b-support"), ("6. Timing", "b-timing"),
+                    ("7. Admin & Log", "b-admin"), ("8. Comd & Sig", "b-comd")
+                ]
+                
+                sqf_lines = []
+                # Diary records are usually added in reverse order in SQF to show up correctly (1-8) in game
+                for title, element_id in reversed(sections):
+                    val = document.querySelector(f"#{element_id}").value or "Template placeholder."
+                    # SQF Escaping: " -> "" and \n -> <br/>
+                    clean_val = val.replace('"', '""').replace('\n', '<br/>')
+                    sqf_lines.append(f'player createDiaryRecord ["Diary", ["{title}", "{clean_val}"]];')
+                
+                briefing_content = "\n\n".join(sqf_lines)
+                zf.writestr(f"{mission_folder}/scripts/briefing.sqf", briefing_content.encode('utf-8'))
 
         if not CANCEL_REQUESTED:
             log.innerText = "Step 3: Compiling .ZIP..."
@@ -211,7 +385,6 @@ def load_ui():
     global UI_LOADED
     grid = document.querySelector("#m-grid")
     
-    # Defensive check to prevent spamming/reactive loops
     if UI_LOADED or grid.children.length > 0: 
         return
     
@@ -224,21 +397,12 @@ def load_ui():
         ["Stratis", "Stratis"], ["Tanoa", "Tanoa"], ["The Bra", "vn_the_bra"], ["Vanam", "fox_vanam"]
     ]
     
-    # Use a Fragment or single-pass construction for performance
     for m_name, m_suffix in maps:
         card = document.createElement("div")
         card.className = "card"
         card.setAttribute("data-s", m_suffix)
         card.setAttribute("data-n", m_name)
-        
-        thumb = f"{IMG_BASE}{m_suffix}.jpg"
-        # Refactored onerror: One-time swap to a clean CSS-based placeholder
-        card.innerHTML = f"""
-            <img src="{thumb}" loading="lazy" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="placeholder-text" style="display:none;">{m_suffix}</div>
-            <div class="card-info">{m_name}</div>
-        """
+        card.textContent = m_name
         card.onclick = pick_map
         grid.appendChild(card)
 
